@@ -120,16 +120,6 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   tp1f_track_detacutpass = NULL;
   // --- now third harmonic
   // --- end third harmonic
-  centrality_ac_fvtxc_tracks_c22 = NULL;
-  centrality_ac_fvtxc_tracks_c24 = NULL;
-  centrality_ac_fvtxc_tracks_c26 = NULL;
-  centrality_ac_fvtxc_tracks_c28 = NULL;
-  centrality_ac_fvtxsfvtxn_tracks_c22  = NULL;
-  centrality_ac_fvtxsfvtxn_tracks_c24  = NULL;
-  centrality_ac_fvtxsfvtxn_tracks_c24a = NULL;
-  centrality_ac_fvtxsfvtxn_tracks_c24b = NULL;
-  centrality_ac_fvtxsfvtxn_tracks_c24c = NULL;
-  centrality_ac_fvtxsfvtxn_tracks_c24d = NULL;
   centrality_ac_fvtxc_tracks_cos21 = NULL;
   centrality_ac_fvtxc_tracks_sin21 = NULL;
   centrality_ac_fvtxc_tracks_cossum22 = NULL;
@@ -149,16 +139,6 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   // ---
   // --- now third harmonic
   // --- end third harmonic
-  centrality_os_fvtxc_tracks_c22 = NULL;
-  centrality_os_fvtxc_tracks_c24 = NULL;
-  centrality_os_fvtxc_tracks_c26 = NULL;
-  centrality_os_fvtxc_tracks_c28 = NULL;
-  centrality_os_fvtxsfvtxn_tracks_c22  = NULL;
-  centrality_os_fvtxsfvtxn_tracks_c24  = NULL;
-  centrality_os_fvtxsfvtxn_tracks_c24a = NULL;
-  centrality_os_fvtxsfvtxn_tracks_c24b = NULL;
-  centrality_os_fvtxsfvtxn_tracks_c24c = NULL;
-  centrality_os_fvtxsfvtxn_tracks_c24d = NULL;
   centrality_os_fvtxc_tracks_cos21 = NULL;
   centrality_os_fvtxc_tracks_sin21 = NULL;
   centrality_os_fvtxc_tracks_cossum22 = NULL;
@@ -373,16 +353,6 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
   // --- centrality
   // ---------------------------------------------------------------------------------------------------------
 
-  centrality_ac_fvtxc_tracks_c22 = new TProfile(Form("centrality_ac_fvtxc_tracks_c22"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_ac_fvtxc_tracks_c24 = new TProfile(Form("centrality_ac_fvtxc_tracks_c24"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_ac_fvtxc_tracks_c26 = new TProfile(Form("centrality_ac_fvtxc_tracks_c26"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_ac_fvtxc_tracks_c28 = new TProfile(Form("centrality_ac_fvtxc_tracks_c28"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_ac_fvtxsfvtxn_tracks_c22  = new TProfile(Form("centrality_ac_fvtxsfvtxn_tracks_c22"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_ac_fvtxsfvtxn_tracks_c24  = new TProfile(Form("centrality_ac_fvtxsfvtxn_tracks_c24"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_ac_fvtxsfvtxn_tracks_c24a = new TProfile(Form("centrality_ac_fvtxsfvtxn_tracks_c24a"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_ac_fvtxsfvtxn_tracks_c24b = new TProfile(Form("centrality_ac_fvtxsfvtxn_tracks_c24b"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_ac_fvtxsfvtxn_tracks_c24c = new TProfile(Form("centrality_ac_fvtxsfvtxn_tracks_c24c"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_ac_fvtxsfvtxn_tracks_c24d = new TProfile(Form("centrality_ac_fvtxsfvtxn_tracks_c24d"),"",100, -0.5, 99.5, -1.1, 1.1);
 
   // --- correction histograms
 
@@ -448,16 +418,6 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
   // --- centrality
   // ---------------------------------------------------------------------------------------------------------
 
-  centrality_os_fvtxc_tracks_c22 = new TProfile(Form("centrality_os_fvtxc_tracks_c22"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_os_fvtxc_tracks_c24 = new TProfile(Form("centrality_os_fvtxc_tracks_c24"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_os_fvtxc_tracks_c26 = new TProfile(Form("centrality_os_fvtxc_tracks_c26"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_os_fvtxc_tracks_c28 = new TProfile(Form("centrality_os_fvtxc_tracks_c28"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_os_fvtxsfvtxn_tracks_c22  = new TProfile(Form("centrality_os_fvtxsfvtxn_tracks_c22"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_os_fvtxsfvtxn_tracks_c24  = new TProfile(Form("centrality_os_fvtxsfvtxn_tracks_c24"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_os_fvtxsfvtxn_tracks_c24a = new TProfile(Form("centrality_os_fvtxsfvtxn_tracks_c24a"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_os_fvtxsfvtxn_tracks_c24b = new TProfile(Form("centrality_os_fvtxsfvtxn_tracks_c24b"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_os_fvtxsfvtxn_tracks_c24c = new TProfile(Form("centrality_os_fvtxsfvtxn_tracks_c24c"),"",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_os_fvtxsfvtxn_tracks_c24d = new TProfile(Form("centrality_os_fvtxsfvtxn_tracks_c24d"),"",100, -0.5, 99.5, -1.1, 1.1);
 
   // --- correction histograms
 
@@ -1298,7 +1258,7 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float ac_fvtxs_tracks_qx6 = fvtxs_tracks_qx6[0];
   float ac_fvtxs_tracks_qy6 = fvtxs_tracks_qy6[0];
   float ac_fvtxs_tracks_qq2 = calc2_event(ac_fvtxs_tracks_qx2,ac_fvtxs_tracks_qy2,ac_fvtxs_tracks_qw);
-  //float ac_fvtxs_tracks_qq3 = calc2_event(ac_fvtxs_tracks_qx3,ac_fvtxs_tracks_qy3,ac_fvtxs_tracks_qw);
+  float ac_fvtxs_tracks_qq3 = calc2_event(ac_fvtxs_tracks_qx3,ac_fvtxs_tracks_qy3,ac_fvtxs_tracks_qw);
 
   // --- FVTX north
   float ac_fvtxn_tracks_qw = fvtxn_tracks_qw[0];
@@ -1311,7 +1271,7 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float ac_fvtxn_tracks_qx6 = fvtxn_tracks_qx6[0];
   float ac_fvtxn_tracks_qy6 = fvtxn_tracks_qy6[0];
   float ac_fvtxn_tracks_qq2 = calc2_event(ac_fvtxn_tracks_qx2,ac_fvtxn_tracks_qy2,ac_fvtxn_tracks_qw);
-  //float ac_fvtxn_tracks_qq3 = calc2_event(ac_fvtxn_tracks_qx3,ac_fvtxn_tracks_qy3,ac_fvtxn_tracks_qw);
+  float ac_fvtxn_tracks_qq3 = calc2_event(ac_fvtxn_tracks_qx3,ac_fvtxn_tracks_qy3,ac_fvtxn_tracks_qw);
 
   // --- FVTX north and south combined
   float ac_fvtxc_tracks_qx2 = ac_fvtxs_tracks_qx2 + ac_fvtxn_tracks_qx2;
@@ -1341,6 +1301,9 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   // --- scalar product, fvtxs dot fvtxn
   float ac_fvtxsfvtxn_tracks_qq2 = ( (ac_fvtxs_tracks_qx2*ac_fvtxn_tracks_qx2) + (ac_fvtxs_tracks_qy2*ac_fvtxn_tracks_qy2) ) / ( ac_fvtxs_tracks_qw*ac_fvtxn_tracks_qw );
   float ac_fvtxsfvtxn_tracks_qq3 = ( (ac_fvtxs_tracks_qx3*ac_fvtxn_tracks_qx3) + (ac_fvtxs_tracks_qy3*ac_fvtxn_tracks_qy3) ) / ( ac_fvtxs_tracks_qw*ac_fvtxn_tracks_qw );
+  if ( _verbosity > 1000 ) cout << ac_fvtxs_tracks_qq2 << " " << ac_fvtxs_tracks_qq3 << endl;
+  if ( _verbosity > 1000 ) cout << ac_fvtxn_tracks_qq2 << " " << ac_fvtxn_tracks_qq3 << endl;
+  if ( _verbosity > 1000 ) cout << ac_fvtxsfvtxn_tracks_qq2 << " " << ac_fvtxsfvtxn_tracks_qq3 << endl;
 
   // --- now have a look at some 4 particle cumulants
   // --- calc4_event has the protection/requirement on the minimum number of tracks
@@ -1357,7 +1320,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   double tcaw = ac_fvtxs_tracks_qw*ac_fvtxs_tracks_qw - ac_fvtxs_tracks_qw;
   double tcbw = ac_fvtxn_tracks_qw*ac_fvtxn_tracks_qw - ac_fvtxn_tracks_qw;
   double denominator = tcaw*tcbw;
-  double answer_c24a = numerator/denominator;
 
   float ac_fvtxc_tracks_qqqq34 = calc4_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qx6,ac_fvtxc_tracks_qy6,ac_fvtxc_tracks_qw);
 
@@ -1470,7 +1432,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   // --------------
 
   // --- combined
-  centrality_ac_fvtxc_tracks_c22->Fill(centrality,ac_fvtxc_tracks_qq2);
   centrality_ac_fvtxc_tracks_cos21->Fill(centrality,ac_fvtxc_tracks_qx2/ac_fvtxc_tracks_qw);
   centrality_ac_fvtxc_tracks_sin21->Fill(centrality,ac_fvtxc_tracks_qy2/ac_fvtxc_tracks_qw);
   centrality_ac_fvtxc_tracks_c32->Fill(centrality,ac_fvtxc_tracks_qq3); // come back here
@@ -1486,17 +1447,11 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   centrality_ac_fvtxc_tracks_cos33->Fill(centrality,ac_fvtxc_tracks_cos33);
   centrality_ac_fvtxc_tracks_sin33->Fill(centrality,ac_fvtxc_tracks_sin33);
   // --- scalar product
-  centrality_ac_fvtxsfvtxn_tracks_c22->Fill(centrality,ac_fvtxsfvtxn_tracks_qq2);
   centrality_ac_fvtxsfvtxn_tracks_c32->Fill(centrality,ac_fvtxsfvtxn_tracks_qq3);
   // --- four particle
-  centrality_ac_fvtxc_tracks_c24->Fill(centrality,ac_fvtxc_tracks_qqqq24);
   centrality_ac_fvtxc_tracks_c34->Fill(centrality,ac_fvtxc_tracks_qqqq34);
   // --- four particle 2sub
-  centrality_ac_fvtxsfvtxn_tracks_c24a->Fill(centrality,answer_c24a);
-  centrality_ac_fvtxsfvtxn_tracks_c24b->Fill(centrality,ac_fvtxs_tracks_qq2*ac_fvtxn_tracks_qq2);
   // --- six particle
-  centrality_ac_fvtxc_tracks_c26->Fill(centrality,ac_fvtxc_tracks_six);
-  centrality_ac_fvtxc_tracks_c28->Fill(centrality,eightRecursion.Re());
 
   if ( _verbosity > 2 )
     {
@@ -1622,7 +1577,7 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float os_fvtxs_tracks_qx6 = fvtxs_tracks_qx6[0] - offset_centrality_qx6_south[icent]*os_fvtxs_tracks_qw;
   float os_fvtxs_tracks_qy6 = fvtxs_tracks_qy6[0] - offset_centrality_qy6_south[icent]*os_fvtxs_tracks_qw;
   float os_fvtxs_tracks_qq2 = calc2_event(os_fvtxs_tracks_qx2,os_fvtxs_tracks_qy2,os_fvtxs_tracks_qw);
-  //float os_fvtxs_tracks_qq3 = calc2_event(os_fvtxs_tracks_qx3,os_fvtxs_tracks_qy3,os_fvtxs_tracks_qw);
+  float os_fvtxs_tracks_qq3 = calc2_event(os_fvtxs_tracks_qx3,os_fvtxs_tracks_qy3,os_fvtxs_tracks_qw);
 
   // --- FVTX north
   float os_fvtxn_tracks_qw = fvtxn_tracks_qw[0];
@@ -1635,7 +1590,7 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float os_fvtxn_tracks_qx6 = fvtxn_tracks_qx6[0] - offset_centrality_qx6_north[icent]*os_fvtxn_tracks_qw;
   float os_fvtxn_tracks_qy6 = fvtxn_tracks_qy6[0] - offset_centrality_qy6_north[icent]*os_fvtxn_tracks_qw;
   float os_fvtxn_tracks_qq2 = calc2_event(os_fvtxn_tracks_qx2,os_fvtxn_tracks_qy2,os_fvtxn_tracks_qw);
-  //float os_fvtxn_tracks_qq3 = calc2_event(os_fvtxn_tracks_qx3,os_fvtxn_tracks_qy3,os_fvtxn_tracks_qw);
+  float os_fvtxn_tracks_qq3 = calc2_event(os_fvtxn_tracks_qx3,os_fvtxn_tracks_qy3,os_fvtxn_tracks_qw);
 
   // --- FVTX north and south combined
   float os_fvtxc_tracks_qx2 = os_fvtxs_tracks_qx2 + os_fvtxn_tracks_qx2;
@@ -1667,6 +1622,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float os_fvtxsfvtxn_tracks_qq3 = ( (os_fvtxs_tracks_qx3*os_fvtxn_tracks_qx3) + (os_fvtxs_tracks_qy3*os_fvtxn_tracks_qy3) ) / ( os_fvtxs_tracks_qw*os_fvtxn_tracks_qw );
   float os_fvtxsfvtxn_tracks_qq4 = ( (os_fvtxs_tracks_qx4*os_fvtxn_tracks_qx4) + (os_fvtxs_tracks_qy4*os_fvtxn_tracks_qy4) ) / ( os_fvtxs_tracks_qw*os_fvtxn_tracks_qw );
 
+  if ( _verbosity > 1000 ) cout << os_fvtxs_tracks_qq2 << " " << os_fvtxs_tracks_qq3 << endl;
+  if ( _verbosity > 1000 ) cout << os_fvtxn_tracks_qq2 << " " << os_fvtxn_tracks_qq3 << endl;
+  if ( _verbosity > 1000 ) cout << os_fvtxsfvtxn_tracks_qq2 << " " << os_fvtxsfvtxn_tracks_qq3 << endl;
+
   // --- now have a look at some 4 particle cumulants
   // --- calc4_event has the protection/requirement on the minimum number of tracks
   float os_fvtxc_tracks_qqqq24 = calc4_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4,os_fvtxc_tracks_qw);
@@ -1683,7 +1642,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   tcaw = os_fvtxs_tracks_qw*os_fvtxs_tracks_qw - os_fvtxs_tracks_qw;
   tcbw = os_fvtxn_tracks_qw*os_fvtxn_tracks_qw - os_fvtxn_tracks_qw;
   denominator = tcaw*tcbw;
-  answer_c24a = numerator/denominator;
 
   float os_fvtxc_tracks_six = calc6_event(tc_os_fvtxc_tracks_Q2,tc_os_fvtxc_tracks_Q4,tc_os_fvtxc_tracks_Q6,os_fvtxc_tracks_qw);
 
@@ -1706,7 +1664,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   // --------------
 
   // --- combined
-  centrality_os_fvtxc_tracks_c22->Fill(centrality,os_fvtxc_tracks_qq2);
   centrality_os_fvtxc_tracks_cos21->Fill(centrality,os_fvtxc_tracks_qx2/os_fvtxc_tracks_qw);
   centrality_os_fvtxc_tracks_sin21->Fill(centrality,os_fvtxc_tracks_qy2/os_fvtxc_tracks_qw);
   centrality_os_fvtxc_tracks_c32->Fill(centrality,os_fvtxc_tracks_qq3);
@@ -1717,17 +1674,11 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   centrality_os_fvtxc_tracks_cos23->Fill(centrality,os_fvtxc_tracks_cos23);
   centrality_os_fvtxc_tracks_sin23->Fill(centrality,os_fvtxc_tracks_sin23);
   // --- scalar product
-  centrality_os_fvtxsfvtxn_tracks_c22->Fill(centrality,os_fvtxsfvtxn_tracks_qq2);
   centrality_os_fvtxsfvtxn_tracks_c32->Fill(centrality,os_fvtxsfvtxn_tracks_qq3);
   centrality_os_fvtxsfvtxn_tracks_c42->Fill(centrality,os_fvtxsfvtxn_tracks_qq4);
   // --- four particle
-  centrality_os_fvtxc_tracks_c24->Fill(centrality,os_fvtxc_tracks_qqqq24);
   // --- four particle 2sub
-  centrality_os_fvtxsfvtxn_tracks_c24a->Fill(centrality,answer_c24a);
-  centrality_os_fvtxsfvtxn_tracks_c24b->Fill(centrality,os_fvtxs_tracks_qq2*os_fvtxn_tracks_qq2);
   // --- six particle
-  centrality_os_fvtxc_tracks_c26->Fill(centrality,os_fvtxc_tracks_six);
-  centrality_os_fvtxc_tracks_c28->Fill(centrality,eightRecursion.Re());
 
 
 
