@@ -206,66 +206,6 @@ class PrecisionTest: public SubsysReco
   TProfile* tp1f_track_detacutpass;
 
 
-  // --- correlation histograms
-  // --- <<cos(n(phi1-phi2))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_c22;
-  // --- <<cos(n(phi1+phi2-phi3-phi4))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_c24;
-  TProfile* nfvtxt_ac_fvtxc_tracks_c26;
-  TProfile* nfvtxt_ac_fvtxc_tracks_c28;
-  // --- 2-particle scalr product
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c22 ;
-  // --- experimental 4-particle correlations
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c24 ;
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c24a;
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c24b;
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c24c;
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c24d;
-
-  // --- acceptance correction histograms
-  // --- <<cos(n(phi1))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_cos21;
-  // --- <<sin(n(phi1))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_sin21;
-  // --- <<cos(n(phi1+phi2))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_cossum22;
-  // --- <<sin(n(phi1+phi2))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_sinsum22;
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_cos23;
-  // --- <<sin(n(phi1-phi2-phi3))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_sin23;
-
-  // --- 3rd harmonic stuff
-  // --- correlation histograms
-  // --- <<cos(n(phi1-phi2))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_c32;
-  // --- <<cos(n(phi1+phi2-phi3-phi4))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_c34;
-  TProfile* nfvtxt_ac_fvtxc_tracks_c36;
-  // --- 2-particle scalr product
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c42 ;
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c32 ;
-  // --- experimental 4-particle correlations
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c34 ;
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c34a;
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c34b;
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c34c;
-  TProfile* nfvtxt_ac_fvtxsfvtxn_tracks_c34d;
-
-  // --- acceptance correction histograms
-  // --- <<cos(n(phi1))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_cos31;
-  // --- <<sin(n(phi1))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_sin31;
-  // --- <<cos(n(phi1+phi2))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_cossum32;
-  // --- <<sin(n(phi1+phi2))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_sinsum32;
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_cos33;
-  // --- <<sin(n(phi1-phi2-phi3))>>
-  TProfile* nfvtxt_ac_fvtxc_tracks_sin33;
 
   // --- centrality stuff
 
@@ -309,65 +249,33 @@ class PrecisionTest: public SubsysReco
 
   // --- correlation histograms
   // --- <<cos(n(phi1-phi2))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_c22;
   // --- <<cos(n(phi1+phi2-phi3-phi4))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_c24;
-  TProfile* nfvtxt_os_fvtxc_tracks_c26;
-  TProfile* nfvtxt_os_fvtxc_tracks_c28;
   // --- 2-particle scalr product
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c22 ;
   // --- experimental 4-particle correlations
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c24 ;
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c24a;
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c24b;
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c24c;
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c24d;
 
   // --- acceptance correction histograms
   // --- <<cos(n(phi1))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_cos21;
   // --- <<sin(n(phi1))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_sin21;
   // --- <<cos(n(phi1+phi2))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_cossum22;
   // --- <<sin(n(phi1+phi2))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_sinsum22;
   // --- <<cos(n(phi1-phi2-phi3))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_cos23;
   // --- <<sin(n(phi1-phi2-phi3))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_sin23;
 
   // --- 3rd harmonic stuff
   // --- 3rd harmonic stuff
   // --- correlation histograms
   // --- <<cos(n(phi1-phi2))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_c32;
   // --- <<cos(n(phi1+phi2-phi3-phi4))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_c34;
-  TProfile* nfvtxt_os_fvtxc_tracks_c36;
   // --- 2-particle scalr product
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c42 ;
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c32 ;
   // --- experimental 4-particle correlations
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c34 ;
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c34a;
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c34b;
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c34c;
-  TProfile* nfvtxt_os_fvtxsfvtxn_tracks_c34d;
 
   // --- acceptance correction histograms
   // --- <<cos(n(phi1))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_cos31;
   // --- <<sin(n(phi1))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_sin31;
   // --- <<cos(n(phi1+phi2))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_cossum32;
   // --- <<sin(n(phi1+phi2))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_sinsum32;
   // --- <<cos(n(phi1-phi2-phi3))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_cos33;
   // --- <<sin(n(phi1-phi2-phi3))>>
-  TProfile* nfvtxt_os_fvtxc_tracks_sin33;
 
   // --- centrality stuff
 
