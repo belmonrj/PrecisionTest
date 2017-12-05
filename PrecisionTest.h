@@ -302,11 +302,7 @@ class PrecisionTest: public SubsysReco
   TProfile* centrality_ac_fvtxc_tracks_sin33;
 
 
-  // --- event plane decorrelation stuff
-  TProfile* tp1f_special_fvtx_tracks_ab[8];
-  TProfile* tp1f_special_fvtx_tracks_aa;
-  TProfile* tp1f_special_fvtx_tracks_aa_cos;
-  TProfile* tp1f_special_fvtx_tracks_aa_sin;
+
 
 
 

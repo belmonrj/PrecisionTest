@@ -151,10 +151,6 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   centrality_os_fvtxc_tracks_cos31 = NULL;
   centrality_os_fvtxc_tracks_sin31 = NULL;
 
-  for ( int i = 0; i < 8; ++i ) tp1f_special_fvtx_tracks_ab[i] = NULL;
-  tp1f_special_fvtx_tracks_aa = NULL;
-  tp1f_special_fvtx_tracks_aa_cos = NULL;
-  tp1f_special_fvtx_tracks_aa_sin = NULL;
   centrality_tracks_south_qx2 = NULL;
   centrality_tracks_south_qx3 = NULL;
   centrality_tracks_south_qx4 = NULL;
@@ -446,10 +442,6 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
 
 
   // ---------------------------------------------------------------------------------------------------------
-  for ( int i = 0; i < 8; ++i ) tp1f_special_fvtx_tracks_ab[i] = new TProfile(Form("tp1f_special_fvtx_tracks_ab%d",i),"",12,-3,3,-1.1,1.1,"");
-  tp1f_special_fvtx_tracks_aa = new TProfile("tp1f_special_fvtx_tracks_aa","",12,-3,3,-1.1,1.1,"");
-  tp1f_special_fvtx_tracks_aa_cos = new TProfile("tp1f_special_fvtx_tracks_aa_cos","",12,-3,3,-1.1,1.1,"");
-  tp1f_special_fvtx_tracks_aa_sin = new TProfile("tp1f_special_fvtx_tracks_aa_sin","",12,-3,3,-1.1,1.1,"");
 
   // ---
   // ---
@@ -884,15 +876,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   int ntrack_south_outer = 0;
   int ntrack_north_outer = 0;
 
-  float special_fvtx_tracks_qx2[8];
-  float special_fvtx_tracks_qy2[8];
-  float special_fvtx_tracks_qw[8];
-  for ( int i = 0; i < 8; ++i )
-  {
-    special_fvtx_tracks_qx2[i] = 0;
-    special_fvtx_tracks_qy2[i] = 0;
-    special_fvtx_tracks_qw[i] = 0;
-  }
 
 
   // --- initialize Q-vectors for tree
@@ -1093,22 +1076,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
           d_SouthQW += 1;
         }
 
-      // --- now fill the Q-vector arrays
-      int special_index = -1;
-      if ( eta > -3.0 && eta < -2.5 ) special_index = 0;
-      if ( eta > -2.5 && eta < -2.0 ) special_index = 1;
-      if ( eta > -2.0 && eta < -1.5 ) special_index = 2;
-      if ( eta > -1.5 && eta < -1.0 ) special_index = 3;
-      if ( eta > 1.0 && eta < 1.5 ) special_index = 4;
-      if ( eta > 1.5 && eta < 2.0 ) special_index = 5;
-      if ( eta > 2.0 && eta < 2.5 ) special_index = 6;
-      if ( eta > 2.5 && eta < 3.0 ) special_index = 7;
-      if ( special_index > -1 && special_index < 8 )
-	{
-	  special_fvtx_tracks_qx2[special_index] += cos(2*phi);
-	  special_fvtx_tracks_qy2[special_index] += sin(2*phi);
-	  special_fvtx_tracks_qw[special_index] += 1;
-	}
 
       bool is_south = ( eta < 0 );
       bool is_south_inner = ( eta > -2 && eta < 0 );
