@@ -266,11 +266,16 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   // --- test double vs long double precision
   for ( int i = 0; i < 100; ++i )
     {
-      db_precision_counter[i] = 0;
-      db_uncorr_v32[i] = 0;
-      db_uncorr_v34[i] = 0;
-      db_corr_v32[i] = 0;
-      db_corr_v34[i] = 0;
+      flt_precision_counter[i] = 0;
+      flt_uncorr_v32[i] = 0;
+      flt_uncorr_v34[i] = 0;
+      flt_corr_v32[i] = 0;
+      flt_corr_v34[i] = 0;
+      dbl_precision_counter[i] = 0;
+      dbl_uncorr_v32[i] = 0;
+      dbl_uncorr_v34[i] = 0;
+      dbl_corr_v32[i] = 0;
+      dbl_corr_v34[i] = 0;
       ldb_precision_counter[i] = 0;
       ldb_uncorr_v32[i] = 0;
       ldb_uncorr_v34[i] = 0;

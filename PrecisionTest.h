@@ -95,11 +95,16 @@ class PrecisionTest: public SubsysReco
   static const int default_cut_nhit = 3;
 
   // --- test double vs long double precision...
-  double db_precision_counter[100];
-  double db_uncorr_v32[100];
-  double db_uncorr_v34[100];
-  double db_corr_v32[100];
-  double db_corr_v34[100];
+  float flt_precision_counter[100];
+  float flt_uncorr_v32[100];
+  float flt_uncorr_v34[100];
+  float flt_corr_v32[100];
+  float flt_corr_v34[100];
+  double dbl_precision_counter[100];
+  double dbl_uncorr_v32[100];
+  double dbl_uncorr_v34[100];
+  double dbl_corr_v32[100];
+  double dbl_corr_v34[100];
   long double ldb_precision_counter[100];
   long double ldb_uncorr_v32[100];
   long double ldb_uncorr_v34[100];
