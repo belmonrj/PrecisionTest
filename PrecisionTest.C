@@ -87,7 +87,6 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   bc_y = -9999.9;
   vtx_z = -9999.9;
 
-  shorttree = NULL;
   bbc_qn = -9999.9;
   bbc_qs = -9999.9;
   nfvtxt = 0;
@@ -567,38 +566,7 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
 
   if (_create_ttree)
   {
-    shorttree = new TTree("shorttree", "Event-wise TTree");
-    shorttree->SetAutoFlush(1000);
-    shorttree->SetMaxTreeSize(100000000000LL);
-    //shorttree -> Branch("event", &event, "event/F");
-    shorttree -> Branch("bbc_z", &bbc_z, "bbc_z/F");
-    shorttree -> Branch("centrality", &centrality, "centrality/F");
-    //shorttree -> Branch("npc1", &npc1, "npc1/I");
-    shorttree -> Branch("nfvtxt", &nfvtxt, "nfvtxt/I");
-    shorttree -> Branch("nfvtxt_south", &nfvtxt_south, "nfvtxt_south/I");
-    shorttree -> Branch("nfvtxt_north", &nfvtxt_north, "nfvtxt_north/I");
-    shorttree -> Branch("nfvtxt_raw", &nfvtxt_raw, "nfvtxt_raw/I");
-    shorttree -> Branch("trigger_scaled", &trigger_scaled, "trigger_scaled/i");
-    //shorttree -> Branch("trigger_live", &trigger_live, "trigger_live/i");
-    // shorttree -> Branch("d_Qx", &d_Qx, "d_Qx[9]/F");
-    // shorttree -> Branch("d_Qy", &d_Qy, "d_Qy[9]/F");
-    // shorttree -> Branch("d_Qw", &d_Qw, "d_Qw[9]/F");
-    shorttree -> Branch("d_SouthQX", &d_SouthQX, "d_SouthQX[9]/F");
-    shorttree -> Branch("d_SouthQY", &d_SouthQY, "d_SouthQY[9]/F");
-    shorttree -> Branch("d_SouthQW", &d_SouthQW, "d_SouthQW/F");
-    shorttree -> Branch("d_NorthQX", &d_NorthQX, "d_NorthQX[9]/F");
-    shorttree -> Branch("d_NorthQY", &d_NorthQY, "d_NorthQY[9]/F");
-    shorttree -> Branch("d_NorthQW", &d_NorthQW, "d_NorthQW/F");
-    // shorttree -> Branch("bc_x", &bc_x, "bc_x/F");
-    // shorttree -> Branch("bc_y", &bc_y, "bc_y/F");
-    // shorttree -> Branch("vtx_z", &vtx_z, "vtx_z/F");
-    // shorttree -> Branch("fvtx_x", &FVTX_X, "fvtx_x/F");
-    // shorttree -> Branch("fvtx_y", &FVTX_Y, "fvtx_y/F");
-    // shorttree -> Branch("fvtx_z", &FVTX_Z, "fvtx_z/F");
-    // shorttree -> Branch("frac", &frac, "frac/F");
-    shorttree -> Branch("bbc_qn", &bbc_qn, "bbc_qn/F");
-    shorttree -> Branch("bbc_qs", &bbc_qs, "bbc_qs/F");
-    // shorttree -> Branch("d_BBC_charge", &d_BBC_charge, "d_BBC_charge[128]/F");
+    cout << "not making tree..." << endl;
   }
 
   // ---
@@ -2522,8 +2490,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
 
   if ( _verbosity > 0 ) cout << "sucessfully processed this event, number of fvtx tracks is " << nfvtxt_raw << ", number of fvtx tracks passing cuts is " << nfvtxt << endl;
-
-  if ( _create_ttree ) shorttree->Fill();
 
   ++tmp_evt;//to keep track of how many events pass event cuts
   return EVENT_OK;
