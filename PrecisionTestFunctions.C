@@ -3,11 +3,25 @@
 
 
 // <cos(n(phi1-phi2))>
-float PrecisionTest::calc2_event(float Xn, float Yn, float M)
+float PrecisionTest::flt_calc2_event(float Xn, float Yn, float M)
 {
   if ( M < 2 ) return -9999;
   float numerator = Xn*Xn + Yn*Yn - M;
   float denominator = M*(M-1);
+  return numerator/denominator;
+}
+double PrecisionTest::dbl_calc2_event(double Xn, double Yn, double M)
+{
+  if ( M < 2 ) return -9999;
+  double numerator = Xn*Xn + Yn*Yn - M;
+  double denominator = M*(M-1);
+  return numerator/denominator;
+}
+long double PrecisionTest::ldb_calc2_event(long double Xn, long double Yn, long double M)
+{
+  if ( M < 2 ) return -9999;
+  long double numerator = Xn*Xn + Yn*Yn - M;
+  long double denominator = M*(M-1);
   return numerator/denominator;
 }
 
@@ -52,7 +66,7 @@ float PrecisionTest::calcsin3_event(TComplex& Qn, TComplex& Q2n, float M)
 }
 
 // <cos(n(phi1+phi2-phi3-phi4))>
-float PrecisionTest::calc4_event(float Xn, float Yn, float X2n, float Y2n, float M)
+float PrecisionTest::flt_calc4_event(float Xn, float Yn, float X2n, float Y2n, float M)
 {
 
   if ( M < 4 ) return -9999;
@@ -68,6 +82,46 @@ float PrecisionTest::calc4_event(float Xn, float Yn, float X2n, float Y2n, float
 
   float numerator = one + two - three - four + five;
   float denominator = M*(M-1)*(M-2)*(M-3);
+
+  return numerator/denominator;
+
+}
+double PrecisionTest::dbl_calc4_event(double Xn, double Yn, double X2n, double Y2n, double M)
+{
+
+  if ( M < 4 ) return -9999;
+
+  double Qn2 = Xn*Xn+Yn*Yn;
+  double Qn2d = Xn*Xn-Yn*Yn;
+
+  double one   = Qn2*Qn2;
+  double two   = X2n*X2n+Y2n*Y2n;
+  double three = (2*(X2n*Qn2d + 2*Y2n*Xn*Yn));
+  double four  = 2*(2*(M-2)*Qn2);
+  double five  = 2*M*(M-3);
+
+  double numerator = one + two - three - four + five;
+  double denominator = M*(M-1)*(M-2)*(M-3);
+
+  return numerator/denominator;
+
+}
+long double PrecisionTest::ldb_calc4_event(long double Xn, long double Yn, long double X2n, long double Y2n, long double M)
+{
+
+  if ( M < 4 ) return -9999;
+
+  long double Qn2 = Xn*Xn+Yn*Yn;
+  long double Qn2d = Xn*Xn-Yn*Yn;
+
+  long double one   = Qn2*Qn2;
+  long double two   = X2n*X2n+Y2n*Y2n;
+  long double three = (2*(X2n*Qn2d + 2*Y2n*Xn*Yn));
+  long double four  = 2*(2*(M-2)*Qn2);
+  long double five  = 2*M*(M-3);
+
+  long double numerator = one + two - three - four + five;
+  long double denominator = M*(M-1)*(M-2)*(M-3);
 
   return numerator/denominator;
 

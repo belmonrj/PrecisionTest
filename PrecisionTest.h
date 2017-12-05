@@ -50,9 +50,6 @@ class PrecisionTest: public SubsysReco
   // --- special event cuts
   bool PassesTracksChargeRatio(int, double);
 
-  // --- cumulants functions
-  float calc2_event(float, float, float);
-  float calc4_event(float, float, float, float, float);
   float calc6_event(TComplex&, TComplex&, TComplex&, float);
   // --- acceptance correction functions
   float calccossum2_event(TComplex&, TComplex&, float);
@@ -110,6 +107,14 @@ class PrecisionTest: public SubsysReco
   long double ldb_uncorr_v34[100];
   long double ldb_corr_v32[100];
   long double ldb_corr_v34[100];
+  // --- cumulants functions
+  float flt_calc2_event(float, float, float);
+  float flt_calc4_event(float, float, float, float, float);
+  double dbl_calc2_event(double, double, double);
+  double dbl_calc4_event(double, double, double, double, double);
+  long double ldb_calc2_event(long double, long double, long double);
+  long double ldb_calc4_event(long double, long double, long double, long double, long double);
+
 
   /// current event
   unsigned long _ievent;
