@@ -835,6 +835,8 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
 
   // --- fvtx tracks
+  // --- come back here and consider changing to long double
+  // --- or making duplicates
   float fvtxs_tracks_qx2[3]; // both, inner, outer
   float fvtxs_tracks_qy2[3];
   float fvtxs_tracks_qx3[3];
@@ -930,7 +932,7 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
       float the = fvtx_trk->get_fvtx_theta();
       float eta = fvtx_trk->get_fvtx_eta();
-      float phi = fvtx_trk->get_fvtx_phi();
+      float phi = fvtx_trk->get_fvtx_phi(); // double check the class def for type
       // int   arm = (int)fvtx_trk->get_arm();
       float fvtx_x      = fvtx_trk->get_fvtx_vtx().getX();
       float fvtx_y      = fvtx_trk->get_fvtx_vtx().getY();
@@ -1231,6 +1233,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float ac_fvtxs_tracks_qy6 = fvtxs_tracks_qy6[0];
   float ac_fvtxs_tracks_qq2 = flt_calc2_event(ac_fvtxs_tracks_qx2,ac_fvtxs_tracks_qy2,ac_fvtxs_tracks_qw);
   float ac_fvtxs_tracks_qq3 = flt_calc2_event(ac_fvtxs_tracks_qx3,ac_fvtxs_tracks_qy3,ac_fvtxs_tracks_qw);
+  double dbl_ac_fvtxs_tracks_qq2 = dbl_calc2_event(ac_fvtxs_tracks_qx2,ac_fvtxs_tracks_qy2,ac_fvtxs_tracks_qw);
+  double dbl_ac_fvtxs_tracks_qq3 = dbl_calc2_event(ac_fvtxs_tracks_qx3,ac_fvtxs_tracks_qy3,ac_fvtxs_tracks_qw);
+  long double ldb_ac_fvtxs_tracks_qq2 = ldb_calc2_event(ac_fvtxs_tracks_qx2,ac_fvtxs_tracks_qy2,ac_fvtxs_tracks_qw);
+  long double ldb_ac_fvtxs_tracks_qq3 = ldb_calc2_event(ac_fvtxs_tracks_qx3,ac_fvtxs_tracks_qy3,ac_fvtxs_tracks_qw);
 
   // --- FVTX north
   float ac_fvtxn_tracks_qw = fvtxn_tracks_qw[0];
@@ -1244,6 +1250,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float ac_fvtxn_tracks_qy6 = fvtxn_tracks_qy6[0];
   float ac_fvtxn_tracks_qq2 = flt_calc2_event(ac_fvtxn_tracks_qx2,ac_fvtxn_tracks_qy2,ac_fvtxn_tracks_qw);
   float ac_fvtxn_tracks_qq3 = flt_calc2_event(ac_fvtxn_tracks_qx3,ac_fvtxn_tracks_qy3,ac_fvtxn_tracks_qw);
+  double dbl_ac_fvtxn_tracks_qq2 = dbl_calc2_event(ac_fvtxn_tracks_qx2,ac_fvtxn_tracks_qy2,ac_fvtxn_tracks_qw);
+  double dbl_ac_fvtxn_tracks_qq3 = dbl_calc2_event(ac_fvtxn_tracks_qx3,ac_fvtxn_tracks_qy3,ac_fvtxn_tracks_qw);
+  long double ldb_ac_fvtxn_tracks_qq2 = ldb_calc2_event(ac_fvtxn_tracks_qx2,ac_fvtxn_tracks_qy2,ac_fvtxn_tracks_qw);
+  long double ldb_ac_fvtxn_tracks_qq3 = ldb_calc2_event(ac_fvtxn_tracks_qx3,ac_fvtxn_tracks_qy3,ac_fvtxn_tracks_qw);
 
   // --- FVTX north and south combined
   float ac_fvtxc_tracks_qx2 = ac_fvtxs_tracks_qx2 + ac_fvtxn_tracks_qx2;
@@ -1257,6 +1267,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float ac_fvtxc_tracks_qw = ac_fvtxs_tracks_qw + ac_fvtxn_tracks_qw;
   float ac_fvtxc_tracks_qq2 = flt_calc2_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qw);
   float ac_fvtxc_tracks_qq3 = flt_calc2_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qw);
+  double dbl_ac_fvtxc_tracks_qq2 = dbl_calc2_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qw);
+  double dbl_ac_fvtxc_tracks_qq3 = dbl_calc2_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qw);
+  long double ldb_ac_fvtxc_tracks_qq2 = ldb_calc2_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qw);
+  long double ldb_ac_fvtxc_tracks_qq3 = ldb_calc2_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qw);
   TComplex tc_ac_fvtxc_tracks_Q2(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2);
   TComplex tc_ac_fvtxc_tracks_Q3(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3);
   TComplex tc_ac_fvtxc_tracks_Q4(ac_fvtxc_tracks_qx4,ac_fvtxc_tracks_qy4);
@@ -1281,6 +1295,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   // --- calc4_event has the protection/requirement on the minimum number of tracks
   float ac_fvtxc_tracks_qqqq24 = flt_calc4_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qx4,ac_fvtxc_tracks_qy4,ac_fvtxc_tracks_qw);
   float ac_fvtxc_tracks_qqqq34 = flt_calc4_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qx6,ac_fvtxc_tracks_qy6,ac_fvtxc_tracks_qw);
+  double dbl_ac_fvtxc_tracks_qqqq24 = dbl_calc4_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qx4,ac_fvtxc_tracks_qy4,ac_fvtxc_tracks_qw);
+  double dbl_ac_fvtxc_tracks_qqqq34 = dbl_calc4_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qx6,ac_fvtxc_tracks_qy6,ac_fvtxc_tracks_qw);
+  long double ldb_ac_fvtxc_tracks_qqqq24 = ldb_calc4_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qx4,ac_fvtxc_tracks_qy4,ac_fvtxc_tracks_qw);
+  long double ldb_ac_fvtxc_tracks_qqqq34 = ldb_calc4_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qx6,ac_fvtxc_tracks_qy6,ac_fvtxc_tracks_qw);
   if ( _verbosity > 1000 ) cout << ac_fvtxc_tracks_qqqq24 << " " << ac_fvtxc_tracks_qqqq34 << endl;
   // --- four particle 2sub
   TComplex tca2 = TComplex(ac_fvtxs_tracks_qx2,ac_fvtxs_tracks_qy2);
@@ -1552,6 +1570,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float os_fvtxs_tracks_qy6 = fvtxs_tracks_qy6[0] - offset_centrality_qy6_south[icent]*os_fvtxs_tracks_qw;
   float os_fvtxs_tracks_qq2 = flt_calc2_event(os_fvtxs_tracks_qx2,os_fvtxs_tracks_qy2,os_fvtxs_tracks_qw);
   float os_fvtxs_tracks_qq3 = flt_calc2_event(os_fvtxs_tracks_qx3,os_fvtxs_tracks_qy3,os_fvtxs_tracks_qw);
+  double dbl_os_fvtxs_tracks_qq2 = dbl_calc2_event(os_fvtxs_tracks_qx2,os_fvtxs_tracks_qy2,os_fvtxs_tracks_qw);
+  double dbl_os_fvtxs_tracks_qq3 = dbl_calc2_event(os_fvtxs_tracks_qx3,os_fvtxs_tracks_qy3,os_fvtxs_tracks_qw);
+  long double ldb_os_fvtxs_tracks_qq2 = ldb_calc2_event(os_fvtxs_tracks_qx2,os_fvtxs_tracks_qy2,os_fvtxs_tracks_qw);
+  long double ldb_os_fvtxs_tracks_qq3 = ldb_calc2_event(os_fvtxs_tracks_qx3,os_fvtxs_tracks_qy3,os_fvtxs_tracks_qw);
 
   // --- FVTX north
   float os_fvtxn_tracks_qw = fvtxn_tracks_qw[0];
@@ -1565,6 +1587,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float os_fvtxn_tracks_qy6 = fvtxn_tracks_qy6[0] - offset_centrality_qy6_north[icent]*os_fvtxn_tracks_qw;
   float os_fvtxn_tracks_qq2 = flt_calc2_event(os_fvtxn_tracks_qx2,os_fvtxn_tracks_qy2,os_fvtxn_tracks_qw);
   float os_fvtxn_tracks_qq3 = flt_calc2_event(os_fvtxn_tracks_qx3,os_fvtxn_tracks_qy3,os_fvtxn_tracks_qw);
+  double dbl_os_fvtxn_tracks_qq2 = dbl_calc2_event(os_fvtxn_tracks_qx2,os_fvtxn_tracks_qy2,os_fvtxn_tracks_qw);
+  double dbl_os_fvtxn_tracks_qq3 = dbl_calc2_event(os_fvtxn_tracks_qx3,os_fvtxn_tracks_qy3,os_fvtxn_tracks_qw);
+  long double ldb_os_fvtxn_tracks_qq2 = ldb_calc2_event(os_fvtxn_tracks_qx2,os_fvtxn_tracks_qy2,os_fvtxn_tracks_qw);
+  long double ldb_os_fvtxn_tracks_qq3 = ldb_calc2_event(os_fvtxn_tracks_qx3,os_fvtxn_tracks_qy3,os_fvtxn_tracks_qw);
 
   // --- FVTX north and south combined
   float os_fvtxc_tracks_qx2 = os_fvtxs_tracks_qx2 + os_fvtxn_tracks_qx2;
@@ -1578,6 +1604,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   float os_fvtxc_tracks_qw = os_fvtxs_tracks_qw + os_fvtxn_tracks_qw;
   float os_fvtxc_tracks_qq2 = flt_calc2_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qw);
   float os_fvtxc_tracks_qq3 = flt_calc2_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qw);
+  double dbl_os_fvtxc_tracks_qq2 = dbl_calc2_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qw);
+  double dbl_os_fvtxc_tracks_qq3 = dbl_calc2_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qw);
+  long double ldb_os_fvtxc_tracks_qq2 = ldb_calc2_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qw);
+  long double ldb_os_fvtxc_tracks_qq3 = ldb_calc2_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qw);
   TComplex tc_os_fvtxc_tracks_Q2(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2);
   TComplex tc_os_fvtxc_tracks_Q3(os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy3);
   TComplex tc_os_fvtxc_tracks_Q4(os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4);
@@ -1604,6 +1634,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   // --- calc4_event has the protection/requirement on the minimum number of tracks
   float os_fvtxc_tracks_qqqq24 = flt_calc4_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4,os_fvtxc_tracks_qw);
   float os_fvtxc_tracks_qqqq34 = flt_calc4_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qx6,os_fvtxc_tracks_qy6,os_fvtxc_tracks_qw);
+  float dbl_os_fvtxc_tracks_qqqq24 = dbl_calc4_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4,os_fvtxc_tracks_qw);
+  float dbl_os_fvtxc_tracks_qqqq34 = dbl_calc4_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qx6,os_fvtxc_tracks_qy6,os_fvtxc_tracks_qw);
+  float ldb_os_fvtxc_tracks_qqqq24 = ldb_calc4_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4,os_fvtxc_tracks_qw);
+  float ldb_os_fvtxc_tracks_qqqq34 = ldb_calc4_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qx6,os_fvtxc_tracks_qy6,os_fvtxc_tracks_qw);
   if ( _verbosity > 1000 ) cout << os_fvtxc_tracks_qqqq24 << " " << os_fvtxc_tracks_qqqq34 << endl;
   // --- four particle 2sub
   tca2 = TComplex(os_fvtxs_tracks_qx2,os_fvtxs_tracks_qy2);
@@ -1633,6 +1667,61 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
       cout << "offset south 2y " << offset_centrality_qy2_south[icent] << " " << Qoffset_south[2][1].Im()/Qvector_south[0][1].Re() << " " << qvoff_cent_south[icent][1][2] << endl;
       cout << "offset north 2y " << offset_centrality_qy2_north[icent] << " " << Qoffset_north[2][1].Im()/Qvector_north[0][1].Re() << " " << qvoff_cent_north[icent][1][2] << endl;
     }
+
+  if ( _verbosity > 1000 )
+    {
+      cout << dbl_ac_fvtxs_tracks_qq2 << " \n";
+      cout << dbl_ac_fvtxs_tracks_qq3 << " \n";
+      cout << ldb_ac_fvtxs_tracks_qq2 << " \n";
+      cout << ldb_ac_fvtxs_tracks_qq3 << " \n";
+      cout << dbl_ac_fvtxn_tracks_qq2 << " \n";
+      cout << dbl_ac_fvtxn_tracks_qq3 << " \n";
+      cout << ldb_ac_fvtxn_tracks_qq2 << " \n";
+      cout << ldb_ac_fvtxn_tracks_qq3 << " \n";
+      cout << dbl_ac_fvtxc_tracks_qq2 << " \n";
+      cout << dbl_ac_fvtxc_tracks_qq3 << " \n";
+      cout << ldb_ac_fvtxc_tracks_qq2 << " \n";
+      cout << ldb_ac_fvtxc_tracks_qq3 << " \n";
+      // ---
+      cout << dbl_os_fvtxs_tracks_qq2 << " \n";
+      cout << dbl_os_fvtxs_tracks_qq3 << " \n";
+      cout << ldb_os_fvtxs_tracks_qq2 << " \n";
+      cout << ldb_os_fvtxs_tracks_qq3 << " \n";
+      cout << dbl_os_fvtxn_tracks_qq2 << " \n";
+      cout << dbl_os_fvtxn_tracks_qq3 << " \n";
+      cout << ldb_os_fvtxn_tracks_qq2 << " \n";
+      cout << ldb_os_fvtxn_tracks_qq3 << " \n";
+      cout << dbl_os_fvtxc_tracks_qq2 << " \n";
+      cout << dbl_os_fvtxc_tracks_qq3 << " \n";
+      cout << ldb_os_fvtxc_tracks_qq2 << " \n";
+      // ---
+      cout << dbl_ac_fvtxc_tracks_qqqq24 << " \n";
+      cout << dbl_ac_fvtxc_tracks_qqqq34 << " \n";
+      cout << ldb_ac_fvtxc_tracks_qqqq24 << " \n";
+      cout << ldb_ac_fvtxc_tracks_qqqq34 << " \n";
+      cout << dbl_os_fvtxc_tracks_qqqq24 << " \n";
+      cout << dbl_os_fvtxc_tracks_qqqq34 << " \n";
+      cout << ldb_os_fvtxc_tracks_qqqq24 << " \n";
+      cout << ldb_os_fvtxc_tracks_qqqq34 << " \n";
+    }
+
+  flt_precision_counter[icent] += 1.0;
+  flt_uncorr_v32[icent] += ac_fvtxc_tracks_qq3;
+  flt_uncorr_v34[icent] += ac_fvtxc_tracks_qqqq34;
+  flt_corr_v32[icent] += os_fvtxc_tracks_qq3;
+  flt_corr_v34[icent] += os_fvtxc_tracks_qqqq34;
+
+  dbl_precision_counter[icent] += 1.0;
+  dbl_uncorr_v32[icent] += dbl_ac_fvtxc_tracks_qq3;
+  dbl_uncorr_v34[icent] += dbl_ac_fvtxc_tracks_qqqq34;
+  dbl_corr_v32[icent] += dbl_os_fvtxc_tracks_qq3;
+  dbl_corr_v34[icent] += dbl_os_fvtxc_tracks_qqqq34;
+
+  ldb_precision_counter[icent] += 1.0;
+  ldb_uncorr_v32[icent] += ldb_ac_fvtxc_tracks_qq3;
+  ldb_uncorr_v34[icent] += ldb_ac_fvtxc_tracks_qqqq34;
+  ldb_corr_v32[icent] += ldb_os_fvtxc_tracks_qq3;
+  ldb_corr_v34[icent] += ldb_os_fvtxc_tracks_qqqq34;
 
   // --------------------------------------------------------- //
   // --- centrality
@@ -1676,6 +1765,41 @@ int PrecisionTest::End(PHCompositeNode *topNode)
 {
   if (_verbosity > 1) cout << PHWHERE << "::End() - entered." << endl;
   cout << "total events: " << _ievent << " fraction passing vtx cut: " << tmp_evt * 1.0 / _ievent << endl;
+
+  for ( int icent = 0; icent < 100; ++icent )
+    {
+      // --- flt
+      flt_uncorr_v32[icent] /= flt_precision_counter[icent];
+      flt_uncorr_v34[icent] /= flt_precision_counter[icent];
+      flt_corr_v32[icent] /= flt_precision_counter[icent];
+      flt_corr_v34[icent] /= flt_precision_counter[icent];
+      // --- dbl
+      dbl_uncorr_v32[icent] /= dbl_precision_counter[icent];
+      dbl_uncorr_v34[icent] /= dbl_precision_counter[icent];
+      dbl_corr_v32[icent] /= dbl_precision_counter[icent];
+      dbl_corr_v34[icent] /= dbl_precision_counter[icent];
+      // --- ldb
+      ldb_uncorr_v32[icent] /= ldb_precision_counter[icent];
+      ldb_uncorr_v34[icent] /= ldb_precision_counter[icent];
+      ldb_corr_v32[icent] /= ldb_precision_counter[icent];
+      ldb_corr_v34[icent] /= ldb_precision_counter[icent];
+      // ---
+      float flt_uncorr_c34 = flt_uncorr_v34[icent] - 2*flt_uncorr_v32[icent]*flt_uncorr_v32[icent];
+      double dbl_uncorr_c34 = dbl_uncorr_v34[icent] - 2*dbl_uncorr_v32[icent]*dbl_uncorr_v32[icent];
+      long double ldb_uncorr_c34 = ldb_uncorr_v34[icent] - 2*ldb_uncorr_v32[icent]*ldb_uncorr_v32[icent];
+      if ( icent % 10 == 0 )
+        {
+          cout << "------------------------------------------------------------------------------------------" << endl;
+          cout << "centrality " << icent << endl;
+          printf(" <4> float       %.50f \n <4> double      %.50f \n <4> long double %.50Lf \n",
+                 flt_uncorr_v34[icent],dbl_uncorr_v34[icent],ldb_uncorr_v34[icent]);
+          printf(" c3{4} float       %.50f \n c3{4} double      %.50f \n c3{4} long double %.50Lf \n",
+                 flt_uncorr_c34,dbl_uncorr_c34,ldb_uncorr_c34);
+        } // end if
+    } // end loop over icent
+
+  cout << "------------------------------------------------------------------------------------------" << endl << endl;
+
   _output_file->Write();
   _output_file->Close();
   delete _output_file;
