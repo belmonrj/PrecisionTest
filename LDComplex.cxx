@@ -11,24 +11,24 @@
 
 //////////////////////////////////////////////////////////////////////////
 //                                                                      //
-// TComplex                                                             //
+// LDComplex                                                            //
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
-#include "TComplex.h"
+#include "LDComplex.h"
 #include "Riostream.h"
 
 
-ClassImp(TComplex)
+ClassImp(LDComplex)
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Standard constructor
 
-TComplex::TComplex(Double_t re, Double_t im, Bool_t polar) : fRe(re), fIm(im)
+LDComplex::LDComplex(Double_t re, Double_t im, Bool_t polar) : fRe(re), fIm(im)
 {
    if (polar) {
       if(re<0) {
-         ::Warning("TComplex::ctor","Modulo of a complex number should be >=0, taking the abs");
+         ::Warning("LDComplex::ctor","Modulo of a complex number should be >=0, taking the abs");
          re=-re;
       }
       fRe=re*TMath::Cos(im);
@@ -38,7 +38,7 @@ TComplex::TComplex(Double_t re, Double_t im, Bool_t polar) : fRe(re), fIm(im)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-std::ostream& operator<<(std::ostream& out, const TComplex& c)
+std::ostream& operator<<(std::ostream& out, const LDComplex& c)
 {
    out << "(" << c.fRe << "," << c.fIm << "i)";
    return out;
@@ -46,7 +46,7 @@ std::ostream& operator<<(std::ostream& out, const TComplex& c)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-std::istream& operator>>(std::istream& in, TComplex& c)
+std::istream& operator>>(std::istream& in, LDComplex& c)
 {
    in >> c.fRe >> c.fIm;
    return in;
