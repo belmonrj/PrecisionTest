@@ -35,9 +35,12 @@ protected:
 
 public:
    // ctors and dtors
-   LDComplex(): fRe(0), fIm(0) {}
-   LDComplex(long double re, long double im=0, Bool_t polar=kFALSE);
-   virtual ~LDComplex() {}
+   //LDComplex(): fRe(0), fIm(0) {}
+   LDComplex() { fRe=0; fIm=0; }
+   LDComplex(long double re) { LDComplex(re,0,false); }
+   LDComplex(long double re, long double im) { LDComplex(re,im,false); }
+   LDComplex(long double re, long double im, Bool_t polar);
+   virtual ~LDComplex();
 
    // constants
    static LDComplex I() {return LDComplex(0,1);}
@@ -49,7 +52,9 @@ public:
    long double Rho() const {return sqrt(fRe*fRe+fIm*fIm);}
    long double Rho2() const {return fRe*fRe+fIm*fIm;}
    long double Theta() const {return (fIm||fRe)?atan2(fIm,fRe):0;}
-   LDComplex operator()(long double x, long double y, Bool_t polar=kFALSE)
+   LDComplex operator()(long double x, long double y)
+      { fRe = x; fIm = y; return *this; }
+   LDComplex operator()(long double x, long double y, Bool_t polar)
       { if (polar) { fRe = x*cos(y); fIm = x*sin(y); }
         else { fRe = x; fIm = y; } return *this; }
 

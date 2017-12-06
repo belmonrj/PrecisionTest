@@ -40,6 +40,13 @@ LDComplex::LDComplex(long double re, long double im, Bool_t polar) : fRe(re), fI
 
 ////////////////////////////////////////////////////////////////////////////////
 
+LDComplex::~LDComplex()
+{
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 std::ostream& operator<<(std::ostream& out, const LDComplex& c)
 {
    out << "(" << c.fRe << "," << c.fIm << "i)";
