@@ -190,7 +190,7 @@ public:
    friend std::ostream& operator<<(std::ostream& out, const LDComplex& c);
    friend std::istream& operator>>(std::istream& in, LDComplex& c);
 
-   ClassDef(LDComplex,1)  //Complex Class
+   //ClassDef(LDComplex,1)  //Complex Class
 };
 
 #endif
