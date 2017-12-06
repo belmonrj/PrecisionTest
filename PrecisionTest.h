@@ -169,14 +169,6 @@ class PrecisionTest: public SubsysReco
   float FVTX_Y;
   float FVTX_Z;
 
-  static const int nharm = 5;
-  float d_SouthQX[nharm];
-  float d_SouthQY[nharm];
-  float d_SouthQW;
-  float d_NorthQX[nharm];
-  float d_NorthQY[nharm];
-  float d_NorthQW;
-
   // --- Q-vector offset variables
   double qvoff_nfvtxt[maxTracks][2][maxHarmonic];
   double qvoff_nfvtxt_north[maxTracks][2][maxHarmonic];

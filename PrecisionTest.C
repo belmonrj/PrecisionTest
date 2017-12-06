@@ -93,16 +93,6 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   nfvtxt_south = 0;
   nfvtxt_north = 0;
   nfvtxt_raw = 0;
-  for ( int i = 0; i < nharm; ++i )
-    {
-      d_SouthQX[i] = 0;
-      d_SouthQY[i] = 0;
-      d_NorthQX[i] = 0;
-      d_NorthQY[i] = 0;
-    }
-  d_SouthQW = 0;
-  d_NorthQW = 0;
-
 
   th1d_nfvtxt_combinedER = NULL;
   th1d_nfvtxt_combined = NULL;
@@ -721,16 +711,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
 
 
-  // --- initialize Q-vectors for tree
-  for ( int i = 0; i < nharm; ++i )
-    {
-      d_NorthQX[i] = 0;
-      d_NorthQY[i] = 0;
-      d_SouthQX[i] = 0;
-      d_SouthQY[i] = 0;
-    }
-  d_NorthQW = 0;
-  d_SouthQW = 0;
 
   //int ntr = -1;
   //int ntr = 0;
@@ -899,25 +879,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
             } //  for(int p=0;p<maxPower;p++)
         } // for(int h=0;h<maxHarmonic;h++)
       // ------------------------------------------------------------------------------------------------
-      // --- Q-vectors for tree
-      if ( eta > 0 )
-        {
-          for ( int i = 0; i < nharm; ++i )
-            {
-              d_NorthQX[i] += cos(i*phi);
-              d_NorthQY[i] += sin(i*phi);
-            }
-          d_NorthQW += 1;
-        }
-      if ( eta < 0 )
-        {
-          for ( int i = 0; i < nharm; ++i )
-            {
-              d_SouthQX[i] += cos(i*phi);
-              d_SouthQY[i] += sin(i*phi);
-            }
-          d_SouthQW += 1;
-        }
 
 
       bool is_south = ( eta < 0 );
