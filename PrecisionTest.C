@@ -151,54 +151,6 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   centrality_os_fvtxc_tracks_cos31 = NULL;
   centrality_os_fvtxc_tracks_sin31 = NULL;
 
-  centrality_tracks_south_qx2 = NULL;
-  centrality_tracks_south_qx3 = NULL;
-  centrality_tracks_south_qx4 = NULL;
-  centrality_tracks_south_qx6 = NULL;
-  centrality_tracks_south_qy2 = NULL;
-  centrality_tracks_south_qy3 = NULL;
-  centrality_tracks_south_qy4 = NULL;
-  centrality_tracks_south_qy6 = NULL;
-  centrality_tracks_south_inner_qx2 = NULL;
-  centrality_tracks_south_inner_qx3 = NULL;
-  centrality_tracks_south_inner_qx4 = NULL;
-  centrality_tracks_south_inner_qx6 = NULL;
-  centrality_tracks_south_inner_qy2 = NULL;
-  centrality_tracks_south_inner_qy3 = NULL;
-  centrality_tracks_south_inner_qy4 = NULL;
-  centrality_tracks_south_inner_qy6 = NULL;
-  centrality_tracks_south_outer_qx2 = NULL;
-  centrality_tracks_south_outer_qx3 = NULL;
-  centrality_tracks_south_outer_qx4 = NULL;
-  centrality_tracks_south_outer_qx6 = NULL;
-  centrality_tracks_south_outer_qy2 = NULL;
-  centrality_tracks_south_outer_qy3 = NULL;
-  centrality_tracks_south_outer_qy4 = NULL;
-  centrality_tracks_south_outer_qy6 = NULL;
-  centrality_tracks_north_qx2 = NULL;
-  centrality_tracks_north_qx3 = NULL;
-  centrality_tracks_north_qx4 = NULL;
-  centrality_tracks_north_qx6 = NULL;
-  centrality_tracks_north_qy2 = NULL;
-  centrality_tracks_north_qy3 = NULL;
-  centrality_tracks_north_qy4 = NULL;
-  centrality_tracks_north_qy6 = NULL;
-  centrality_tracks_north_inner_qx2 = NULL;
-  centrality_tracks_north_inner_qx3 = NULL;
-  centrality_tracks_north_inner_qx4 = NULL;
-  centrality_tracks_north_inner_qx6 = NULL;
-  centrality_tracks_north_inner_qy2 = NULL;
-  centrality_tracks_north_inner_qy3 = NULL;
-  centrality_tracks_north_inner_qy4 = NULL;
-  centrality_tracks_north_inner_qy6 = NULL;
-  centrality_tracks_north_outer_qx2 = NULL;
-  centrality_tracks_north_outer_qx3 = NULL;
-  centrality_tracks_north_outer_qx4 = NULL;
-  centrality_tracks_north_outer_qx6 = NULL;
-  centrality_tracks_north_outer_qy2 = NULL;
-  centrality_tracks_north_outer_qy3 = NULL;
-  centrality_tracks_north_outer_qy4 = NULL;
-  centrality_tracks_north_outer_qy6 = NULL;
 
   for ( int cs = 0; cs < 2; ++cs )
     {
@@ -219,22 +171,6 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
           centrality_recoffsets_north[cs][c] = NULL;
           centrality_recoffsets_south[cs][c] = NULL;
         }
-    }
-
-  for ( int i = 0; i < 100; ++i )
-    {
-      offset_centrality_qx2_south[i] = 0;
-      offset_centrality_qx4_south[i] = 0;
-      offset_centrality_qx6_south[i] = 0;
-      offset_centrality_qy2_south[i] = 0;
-      offset_centrality_qy4_south[i] = 0;
-      offset_centrality_qy6_south[i] = 0;
-      offset_centrality_qx2_north[i] = 0;
-      offset_centrality_qx4_north[i] = 0;
-      offset_centrality_qx6_north[i] = 0;
-      offset_centrality_qy2_north[i] = 0;
-      offset_centrality_qy4_north[i] = 0;
-      offset_centrality_qy6_north[i] = 0;
     }
 
   for ( int i = 0; i < maxTracks; ++i )
@@ -460,59 +396,11 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
 
 
 
-  centrality_tracks_south_qx2 = new TProfile("centrality_tracks_south_qx2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_qx3 = new TProfile("centrality_tracks_south_qx3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_qx4 = new TProfile("centrality_tracks_south_qx4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_qx6 = new TProfile("centrality_tracks_south_qx6","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_qy2 = new TProfile("centrality_tracks_south_qy2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_qy3 = new TProfile("centrality_tracks_south_qy3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_qy4 = new TProfile("centrality_tracks_south_qy4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_qy6 = new TProfile("centrality_tracks_south_qy6","",100, -0.5, 99.5, -1.1, 1.1);
 
-  centrality_tracks_south_inner_qx2 = new TProfile("centrality_tracks_south_inner_qx2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_inner_qx3 = new TProfile("centrality_tracks_south_inner_qx3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_inner_qx4 = new TProfile("centrality_tracks_south_inner_qx4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_inner_qx6 = new TProfile("centrality_tracks_south_inner_qx6","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_inner_qy2 = new TProfile("centrality_tracks_south_inner_qy2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_inner_qy3 = new TProfile("centrality_tracks_south_inner_qy3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_inner_qy4 = new TProfile("centrality_tracks_south_inner_qy4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_inner_qy6 = new TProfile("centrality_tracks_south_inner_qy6","",100, -0.5, 99.5, -1.1, 1.1);
 
-  centrality_tracks_south_outer_qx2 = new TProfile("centrality_tracks_south_outer_qx2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_outer_qx3 = new TProfile("centrality_tracks_south_outer_qx3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_outer_qx4 = new TProfile("centrality_tracks_south_outer_qx4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_outer_qx6 = new TProfile("centrality_tracks_south_outer_qx6","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_outer_qy2 = new TProfile("centrality_tracks_south_outer_qy2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_outer_qy3 = new TProfile("centrality_tracks_south_outer_qy3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_outer_qy4 = new TProfile("centrality_tracks_south_outer_qy4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_south_outer_qy6 = new TProfile("centrality_tracks_south_outer_qy6","",100, -0.5, 99.5, -1.1, 1.1);
 
-  centrality_tracks_north_qx2 = new TProfile("centrality_tracks_north_qx2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_qx3 = new TProfile("centrality_tracks_north_qx3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_qx4 = new TProfile("centrality_tracks_north_qx4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_qx6 = new TProfile("centrality_tracks_north_qx6","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_qy2 = new TProfile("centrality_tracks_north_qy2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_qy3 = new TProfile("centrality_tracks_north_qy3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_qy4 = new TProfile("centrality_tracks_north_qy4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_qy6 = new TProfile("centrality_tracks_north_qy6","",100, -0.5, 99.5, -1.1, 1.1);
 
-  centrality_tracks_north_inner_qx2 = new TProfile("centrality_tracks_north_inner_qx2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_inner_qx3 = new TProfile("centrality_tracks_north_inner_qx3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_inner_qx4 = new TProfile("centrality_tracks_north_inner_qx4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_inner_qx6 = new TProfile("centrality_tracks_north_inner_qx6","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_inner_qy2 = new TProfile("centrality_tracks_north_inner_qy2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_inner_qy3 = new TProfile("centrality_tracks_north_inner_qy3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_inner_qy4 = new TProfile("centrality_tracks_north_inner_qy4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_inner_qy6 = new TProfile("centrality_tracks_north_inner_qy6","",100, -0.5, 99.5, -1.1, 1.1);
 
-  centrality_tracks_north_outer_qx2 = new TProfile("centrality_tracks_north_outer_qx2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_outer_qx3 = new TProfile("centrality_tracks_north_outer_qx3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_outer_qx4 = new TProfile("centrality_tracks_north_outer_qx4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_outer_qx6 = new TProfile("centrality_tracks_north_outer_qx6","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_outer_qy2 = new TProfile("centrality_tracks_north_outer_qy2","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_outer_qy3 = new TProfile("centrality_tracks_north_outer_qy3","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_outer_qy4 = new TProfile("centrality_tracks_north_outer_qy4","",100, -0.5, 99.5, -1.1, 1.1);
-  centrality_tracks_north_outer_qy6 = new TProfile("centrality_tracks_north_outer_qy6","",100, -0.5, 99.5, -1.1, 1.1);
 
 
   for ( int cs = 0; cs < 2; ++cs )
@@ -555,22 +443,6 @@ int PrecisionTest::InitRun(PHCompositeNode *topNode)
   }
   runnumber = rh->get_RunNumber();
 
-  // --- reset all
-  for ( int i = 0; i < 100; ++i )
-    {
-      offset_centrality_qx2_south[i] = 0;
-      offset_centrality_qx4_south[i] = 0;
-      offset_centrality_qx6_south[i] = 0;
-      offset_centrality_qy2_south[i] = 0;
-      offset_centrality_qy4_south[i] = 0;
-      offset_centrality_qy6_south[i] = 0;
-      offset_centrality_qx2_north[i] = 0;
-      offset_centrality_qx4_north[i] = 0;
-      offset_centrality_qx6_north[i] = 0;
-      offset_centrality_qy2_north[i] = 0;
-      offset_centrality_qy4_north[i] = 0;
-      offset_centrality_qy6_north[i] = 0;
-    }
   // --- then set again
   SetQvectorOffsets(runnumber);
   SetQvectorOffsetsRBR(runnumber);
@@ -1502,72 +1374,24 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
   // --- now centrality
 
-  centrality_tracks_south_qx2->Fill(centrality,fvtxs_tracks_qx2[0]/fvtxs_tracks_qw[0]);
-  centrality_tracks_south_qx3->Fill(centrality,fvtxs_tracks_qx3[0]/fvtxs_tracks_qw[0]);
-  centrality_tracks_south_qx4->Fill(centrality,fvtxs_tracks_qx4[0]/fvtxs_tracks_qw[0]);
-  centrality_tracks_south_qx6->Fill(centrality,fvtxs_tracks_qx6[0]/fvtxs_tracks_qw[0]);
-  centrality_tracks_south_qy2->Fill(centrality,fvtxs_tracks_qy2[0]/fvtxs_tracks_qw[0]);
-  centrality_tracks_south_qy3->Fill(centrality,fvtxs_tracks_qy3[0]/fvtxs_tracks_qw[0]);
-  centrality_tracks_south_qy4->Fill(centrality,fvtxs_tracks_qy4[0]/fvtxs_tracks_qw[0]);
-  centrality_tracks_south_qy6->Fill(centrality,fvtxs_tracks_qy6[0]/fvtxs_tracks_qw[0]);
 
-  centrality_tracks_south_inner_qx2->Fill(centrality,fvtxs_tracks_qx2[1]/fvtxs_tracks_qw[1]);
-  centrality_tracks_south_inner_qx3->Fill(centrality,fvtxs_tracks_qx3[1]/fvtxs_tracks_qw[1]);
-  centrality_tracks_south_inner_qx4->Fill(centrality,fvtxs_tracks_qx4[1]/fvtxs_tracks_qw[1]);
-  centrality_tracks_south_inner_qx6->Fill(centrality,fvtxs_tracks_qx6[1]/fvtxs_tracks_qw[1]);
-  centrality_tracks_south_inner_qy2->Fill(centrality,fvtxs_tracks_qy2[1]/fvtxs_tracks_qw[1]);
-  centrality_tracks_south_inner_qy3->Fill(centrality,fvtxs_tracks_qy3[1]/fvtxs_tracks_qw[1]);
-  centrality_tracks_south_inner_qy4->Fill(centrality,fvtxs_tracks_qy4[1]/fvtxs_tracks_qw[1]);
-  centrality_tracks_south_inner_qy6->Fill(centrality,fvtxs_tracks_qy6[1]/fvtxs_tracks_qw[1]);
 
-  centrality_tracks_south_outer_qx2->Fill(centrality,fvtxs_tracks_qx2[2]/fvtxs_tracks_qw[2]);
-  centrality_tracks_south_outer_qx3->Fill(centrality,fvtxs_tracks_qx3[2]/fvtxs_tracks_qw[2]);
-  centrality_tracks_south_outer_qx4->Fill(centrality,fvtxs_tracks_qx4[2]/fvtxs_tracks_qw[2]);
-  centrality_tracks_south_outer_qx6->Fill(centrality,fvtxs_tracks_qx6[2]/fvtxs_tracks_qw[2]);
-  centrality_tracks_south_outer_qy2->Fill(centrality,fvtxs_tracks_qy2[2]/fvtxs_tracks_qw[2]);
-  centrality_tracks_south_outer_qy3->Fill(centrality,fvtxs_tracks_qy3[2]/fvtxs_tracks_qw[2]);
-  centrality_tracks_south_outer_qy4->Fill(centrality,fvtxs_tracks_qy4[2]/fvtxs_tracks_qw[2]);
-  centrality_tracks_south_outer_qy6->Fill(centrality,fvtxs_tracks_qy6[2]/fvtxs_tracks_qw[2]);
 
-  centrality_tracks_north_qx2->Fill(centrality,fvtxn_tracks_qx2[0]/fvtxn_tracks_qw[0]);
-  centrality_tracks_north_qx3->Fill(centrality,fvtxn_tracks_qx3[0]/fvtxn_tracks_qw[0]);
-  centrality_tracks_north_qx4->Fill(centrality,fvtxn_tracks_qx4[0]/fvtxn_tracks_qw[0]);
-  centrality_tracks_north_qx6->Fill(centrality,fvtxn_tracks_qx6[0]/fvtxn_tracks_qw[0]);
-  centrality_tracks_north_qy2->Fill(centrality,fvtxn_tracks_qy2[0]/fvtxn_tracks_qw[0]);
-  centrality_tracks_north_qy3->Fill(centrality,fvtxn_tracks_qy3[0]/fvtxn_tracks_qw[0]);
-  centrality_tracks_north_qy4->Fill(centrality,fvtxn_tracks_qy4[0]/fvtxn_tracks_qw[0]);
-  centrality_tracks_north_qy6->Fill(centrality,fvtxn_tracks_qy6[0]/fvtxn_tracks_qw[0]);
 
-  centrality_tracks_north_inner_qx2->Fill(centrality,fvtxn_tracks_qx2[1]/fvtxn_tracks_qw[1]);
-  centrality_tracks_north_inner_qx3->Fill(centrality,fvtxn_tracks_qx3[1]/fvtxn_tracks_qw[1]);
-  centrality_tracks_north_inner_qx4->Fill(centrality,fvtxn_tracks_qx4[1]/fvtxn_tracks_qw[1]);
-  centrality_tracks_north_inner_qx6->Fill(centrality,fvtxn_tracks_qx6[1]/fvtxn_tracks_qw[1]);
-  centrality_tracks_north_inner_qy2->Fill(centrality,fvtxn_tracks_qy2[1]/fvtxn_tracks_qw[1]);
-  centrality_tracks_north_inner_qy3->Fill(centrality,fvtxn_tracks_qy3[1]/fvtxn_tracks_qw[1]);
-  centrality_tracks_north_inner_qy4->Fill(centrality,fvtxn_tracks_qy4[1]/fvtxn_tracks_qw[1]);
-  centrality_tracks_north_inner_qy6->Fill(centrality,fvtxn_tracks_qy6[1]/fvtxn_tracks_qw[1]);
 
-  centrality_tracks_north_outer_qx2->Fill(centrality,fvtxn_tracks_qx2[2]/fvtxn_tracks_qw[2]);
-  centrality_tracks_north_outer_qx3->Fill(centrality,fvtxn_tracks_qx3[2]/fvtxn_tracks_qw[2]);
-  centrality_tracks_north_outer_qx4->Fill(centrality,fvtxn_tracks_qx4[2]/fvtxn_tracks_qw[2]);
-  centrality_tracks_north_outer_qx6->Fill(centrality,fvtxn_tracks_qx6[2]/fvtxn_tracks_qw[2]);
-  centrality_tracks_north_outer_qy2->Fill(centrality,fvtxn_tracks_qy2[2]/fvtxn_tracks_qw[2]);
-  centrality_tracks_north_outer_qy3->Fill(centrality,fvtxn_tracks_qy3[2]/fvtxn_tracks_qw[2]);
-  centrality_tracks_north_outer_qy4->Fill(centrality,fvtxn_tracks_qy4[2]/fvtxn_tracks_qw[2]);
-  centrality_tracks_north_outer_qy6->Fill(centrality,fvtxn_tracks_qy6[2]/fvtxn_tracks_qw[2]);
 
 
   // ---
   // --- FVTX south
   long double os_fvtxs_tracks_qw = fvtxs_tracks_qw[0];
-  long double os_fvtxs_tracks_qx2 = fvtxs_tracks_qx2[0] - offset_centrality_qx2_south[icent]*os_fvtxs_tracks_qw;
-  long double os_fvtxs_tracks_qy2 = fvtxs_tracks_qy2[0] - offset_centrality_qy2_south[icent]*os_fvtxs_tracks_qw;
+  long double os_fvtxs_tracks_qx2 = fvtxs_tracks_qx2[0] - qvoff_cent_south[icent][0][2]*os_fvtxs_tracks_qw;
+  long double os_fvtxs_tracks_qy2 = fvtxs_tracks_qy2[0] - qvoff_cent_south[icent][1][2]*os_fvtxs_tracks_qw;
   long double os_fvtxs_tracks_qx3 = fvtxs_tracks_qx3[0] - qvoff_cent_south[icent][0][3]*os_fvtxs_tracks_qw;
   long double os_fvtxs_tracks_qy3 = fvtxs_tracks_qy3[0] - qvoff_cent_south[icent][1][3]*os_fvtxs_tracks_qw;
-  long double os_fvtxs_tracks_qx4 = fvtxs_tracks_qx4[0] - offset_centrality_qx4_south[icent]*os_fvtxs_tracks_qw;
-  long double os_fvtxs_tracks_qy4 = fvtxs_tracks_qy4[0] - offset_centrality_qy4_south[icent]*os_fvtxs_tracks_qw;
-  long double os_fvtxs_tracks_qx6 = fvtxs_tracks_qx6[0] - offset_centrality_qx6_south[icent]*os_fvtxs_tracks_qw;
-  long double os_fvtxs_tracks_qy6 = fvtxs_tracks_qy6[0] - offset_centrality_qy6_south[icent]*os_fvtxs_tracks_qw;
+  long double os_fvtxs_tracks_qx4 = fvtxs_tracks_qx4[0] - qvoff_cent_south[icent][0][4]*os_fvtxs_tracks_qw;
+  long double os_fvtxs_tracks_qy4 = fvtxs_tracks_qy4[0] - qvoff_cent_south[icent][1][4]*os_fvtxs_tracks_qw;
+  long double os_fvtxs_tracks_qx6 = fvtxs_tracks_qx6[0] - qvoff_cent_south[icent][0][6]*os_fvtxs_tracks_qw;
+  long double os_fvtxs_tracks_qy6 = fvtxs_tracks_qy6[0] - qvoff_cent_south[icent][1][6]*os_fvtxs_tracks_qw;
   float os_fvtxs_tracks_qq2 = flt_calc2_event((float)os_fvtxs_tracks_qx2,(float)os_fvtxs_tracks_qy2,(float)os_fvtxs_tracks_qw);
   float os_fvtxs_tracks_qq3 = flt_calc2_event((float)os_fvtxs_tracks_qx3,(float)os_fvtxs_tracks_qy3,(float)os_fvtxs_tracks_qw);
   double dbl_os_fvtxs_tracks_qq2 = dbl_calc2_event((double)os_fvtxs_tracks_qx2,(double)os_fvtxs_tracks_qy2,(double)os_fvtxs_tracks_qw);
@@ -1577,14 +1401,14 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
   // --- FVTX north
   long double os_fvtxn_tracks_qw = fvtxn_tracks_qw[0];
-  long double os_fvtxn_tracks_qx2 = fvtxn_tracks_qx2[0] - offset_centrality_qx2_north[icent]*os_fvtxn_tracks_qw;
-  long double os_fvtxn_tracks_qy2 = fvtxn_tracks_qy2[0] - offset_centrality_qy2_north[icent]*os_fvtxn_tracks_qw;
+  long double os_fvtxn_tracks_qx2 = fvtxn_tracks_qx2[0] - qvoff_cent_north[icent][0][2]*os_fvtxn_tracks_qw;
+  long double os_fvtxn_tracks_qy2 = fvtxn_tracks_qy2[0] - qvoff_cent_north[icent][1][2]*os_fvtxn_tracks_qw;
   long double os_fvtxn_tracks_qx3 = fvtxn_tracks_qx3[0] - qvoff_cent_north[icent][0][3]*os_fvtxn_tracks_qw;
   long double os_fvtxn_tracks_qy3 = fvtxn_tracks_qy3[0] - qvoff_cent_north[icent][1][3]*os_fvtxn_tracks_qw;
-  long double os_fvtxn_tracks_qx4 = fvtxn_tracks_qx4[0] - offset_centrality_qx4_north[icent]*os_fvtxn_tracks_qw;
-  long double os_fvtxn_tracks_qy4 = fvtxn_tracks_qy4[0] - offset_centrality_qy4_north[icent]*os_fvtxn_tracks_qw;
-  long double os_fvtxn_tracks_qx6 = fvtxn_tracks_qx6[0] - offset_centrality_qx6_north[icent]*os_fvtxn_tracks_qw;
-  long double os_fvtxn_tracks_qy6 = fvtxn_tracks_qy6[0] - offset_centrality_qy6_north[icent]*os_fvtxn_tracks_qw;
+  long double os_fvtxn_tracks_qx4 = fvtxn_tracks_qx4[0] - qvoff_cent_north[icent][0][4]*os_fvtxn_tracks_qw;
+  long double os_fvtxn_tracks_qy4 = fvtxn_tracks_qy4[0] - qvoff_cent_north[icent][1][4]*os_fvtxn_tracks_qw;
+  long double os_fvtxn_tracks_qx6 = fvtxn_tracks_qx6[0] - qvoff_cent_north[icent][0][6]*os_fvtxn_tracks_qw;
+  long double os_fvtxn_tracks_qy6 = fvtxn_tracks_qy6[0] - qvoff_cent_north[icent][1][6]*os_fvtxn_tracks_qw;
   float os_fvtxn_tracks_qq2 = flt_calc2_event((float)os_fvtxn_tracks_qx2,(float)os_fvtxn_tracks_qy2,(float)os_fvtxn_tracks_qw);
   float os_fvtxn_tracks_qq3 = flt_calc2_event((float)os_fvtxn_tracks_qx3,(float)os_fvtxn_tracks_qy3,(float)os_fvtxn_tracks_qw);
   double dbl_os_fvtxn_tracks_qq2 = dbl_calc2_event((double)os_fvtxn_tracks_qx2,(double)os_fvtxn_tracks_qy2,(double)os_fvtxn_tracks_qw);
@@ -1662,10 +1486,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
       cout << "2 " << os_fvtxc_tracks_qq2    << " " <<  twoRecursion.Re() << endl;
       cout << "4 " << os_fvtxc_tracks_qqqq24 << " " << fourRecursion.Re() << endl;
       cout << "6 " << os_fvtxc_tracks_six    << " " <<  sixRecursion.Re() << endl;
-      cout << "offset south 2x " << offset_centrality_qx2_south[icent] << " " << Qoffset_south[2][1].Re()/Qvector_south[0][1].Re() << " " << qvoff_cent_south[icent][0][2] << endl;
-      cout << "offset north 2x " << offset_centrality_qx2_north[icent] << " " << Qoffset_north[2][1].Re()/Qvector_north[0][1].Re() << " " << qvoff_cent_north[icent][0][2] << endl;
-      cout << "offset south 2y " << offset_centrality_qy2_south[icent] << " " << Qoffset_south[2][1].Im()/Qvector_south[0][1].Re() << " " << qvoff_cent_south[icent][1][2] << endl;
-      cout << "offset north 2y " << offset_centrality_qy2_north[icent] << " " << Qoffset_north[2][1].Im()/Qvector_north[0][1].Re() << " " << qvoff_cent_north[icent][1][2] << endl;
+      cout << "offset south 2x " << Qoffset_south[2][1].Re()/Qvector_south[0][1].Re() << " " << qvoff_cent_south[icent][0][2] << endl;
+      cout << "offset north 2x " << Qoffset_north[2][1].Re()/Qvector_north[0][1].Re() << " " << qvoff_cent_north[icent][0][2] << endl;
+      cout << "offset south 2y " << Qoffset_south[2][1].Im()/Qvector_south[0][1].Re() << " " << qvoff_cent_south[icent][1][2] << endl;
+      cout << "offset north 2y " << Qoffset_north[2][1].Im()/Qvector_north[0][1].Re() << " " << qvoff_cent_north[icent][1][2] << endl;
     }
 
   if ( _verbosity > 1000 )
