@@ -655,6 +655,13 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
           Qoffset[h][p] = TComplex(0.,0.);
           Qoffset_north[h][p] = TComplex(0.,0.);
           Qoffset_south[h][p] = TComplex(0.,0.);
+          // --- and now long double version
+          LDQvector[h][p] = LDComplex(0.,0.);
+          LDQvector_north[h][p] = LDComplex(0.,0.);
+          LDQvector_south[h][p] = LDComplex(0.,0.);
+          LDQoffset[h][p] = LDComplex(0.,0.);
+          LDQoffset_north[h][p] = LDComplex(0.,0.);
+          LDQoffset_south[h][p] = LDComplex(0.,0.);
         } //  for(int p=0;p<maxPower;p++)
     } // for(int h=0;h<maxHarmonic;h++)
   // --------------------------------------
@@ -720,11 +727,11 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   nfvtxt_north = 0;
   nfvtxt_raw = 0;
 
-  vector<double> fphi;
-  vector<double> feta;
-  vector<double> fdcax;
-  vector<double> fdcay;
-  vector<double> fchi2ndf;
+  vector<long double> fphi;
+  vector<long double> feta;
+  vector<long double> fdcax;
+  vector<long double> fdcay;
+  vector<long double> fchi2ndf;
   vector<int> fnhitspc;
 
   if ( _verbosity > 1 ) cout << "entering fvtx track loop" << endl;
@@ -853,8 +860,8 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
     {
       // --- double track cut
       if ( do_double_track_cut && !fvtx_track_passes[i] ) continue;
-      double eta = feta[i];
-      double phi = fphi[i];
+      long double eta = feta[i];
+      long double phi = fphi[i];
       double DCA_x = fdcax[i];
       double DCA_y = fdcay[i];
       double chisq = fchi2ndf[i];
@@ -877,6 +884,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
               Qvector[h][p] += TComplex(wPhiToPowerP*TMath::Cos(h*dPhi),wPhiToPowerP*TMath::Sin(h*dPhi));
               if ( eta > 0 ) Qvector_north[h][p] += TComplex(wPhiToPowerP*TMath::Cos(h*dPhi),wPhiToPowerP*TMath::Sin(h*dPhi));
               if ( eta < 0 ) Qvector_south[h][p] += TComplex(wPhiToPowerP*TMath::Cos(h*dPhi),wPhiToPowerP*TMath::Sin(h*dPhi));
+              // --- now double
+              LDQvector[h][p] += LDComplex(cos(h*phi),sin(h*phi));
+              if ( eta > 0 ) LDQvector_north[h][p] += LDComplex(cos(h*phi),sin(h*phi));
+              if ( eta < 0 ) LDQvector_south[h][p] += LDComplex(cos(h*phi),sin(h*phi));
             } //  for(int p=0;p<maxPower;p++)
         } // for(int h=0;h<maxHarmonic;h++)
       // ------------------------------------------------------------------------------------------------
@@ -985,6 +996,15 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
           Qvector_south[h][p] -= Qoffset_south[h][p];
           // --- add up north and south to get combined that's been recentered arm-by-arm
           Qvector[h][p] = Qvector_north[h][p] + Qvector_south[h][p];
+          // ----------------------------------------------------------------------------
+          // --- north
+          LDQoffset_north[h][p] = LDComplex( LDQvector_north[0][1].Re()*qvoff_cent_north[icent][0][h], LDQvector_north[0][1].Re()*qvoff_cent_north[icent][1][h] );
+          LDQvector_north[h][p] -= LDQoffset_north[h][p];
+          // --- south
+          LDQoffset_south[h][p] = LDComplex( LDQvector_south[0][1].Re()*qvoff_cent_south[icent][0][h], LDQvector_south[0][1].Re()*qvoff_cent_south[icent][1][h] );
+          LDQvector_south[h][p] -= LDQoffset_south[h][p];
+          // --- add up north and south to get combined that's been recentered arm-by-arm
+          LDQvector[h][p] = LDQvector_north[h][p] + LDQvector_south[h][p];
         } // for(int p=0;p<maxPower;p++)
     } // for(int h=0;h<maxHarmonic;h++)
   // -------------------------------------------------------------------------------------------------------------------------------
