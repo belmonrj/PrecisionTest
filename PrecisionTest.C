@@ -120,12 +120,6 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   tp1f_track_detacutpass = NULL;
   // --- now third harmonic
   // --- end third harmonic
-  centrality_ac_fvtxc_tracks_cos21 = NULL;
-  centrality_ac_fvtxc_tracks_sin21 = NULL;
-  centrality_ac_fvtxc_tracks_cossum22 = NULL;
-  centrality_ac_fvtxc_tracks_sinsum22 = NULL;
-  centrality_ac_fvtxc_tracks_cos23 = NULL;
-  centrality_ac_fvtxc_tracks_sin23 = NULL;
   centrality_ac_fvtxc_tracks_c32 = NULL;
   centrality_ac_fvtxc_tracks_c34 = NULL;
   centrality_ac_fvtxsfvtxn_tracks_c42  = NULL;
@@ -139,12 +133,6 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   // ---
   // --- now third harmonic
   // --- end third harmonic
-  centrality_os_fvtxc_tracks_cos21 = NULL;
-  centrality_os_fvtxc_tracks_sin21 = NULL;
-  centrality_os_fvtxc_tracks_cossum22 = NULL;
-  centrality_os_fvtxc_tracks_sinsum22 = NULL;
-  centrality_os_fvtxc_tracks_cos23 = NULL;
-  centrality_os_fvtxc_tracks_sin23 = NULL;
   centrality_os_fvtxc_tracks_c32 = NULL;
   centrality_os_fvtxsfvtxn_tracks_c42  = NULL;
   centrality_os_fvtxsfvtxn_tracks_c32  = NULL;
@@ -293,18 +281,6 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
 
   // --- correction histograms
 
-  // --- <<cos(n(phi1))>>
-  centrality_ac_fvtxc_tracks_cos21 = new TProfile(Form("centrality_ac_fvtxc_tracks_cos21"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<sin(n(phi1))>>
-  centrality_ac_fvtxc_tracks_sin21 = new TProfile(Form("centrality_ac_fvtxc_tracks_sin21"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<cos(n(phi1+phi2))>>
-  centrality_ac_fvtxc_tracks_cossum22 = new TProfile(Form("centrality_ac_fvtxc_tracks_cossum22"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<sin(n(phi1+phi2))>>
-  centrality_ac_fvtxc_tracks_sinsum22 = new TProfile(Form("centrality_ac_fvtxc_tracks_sinsum22"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  centrality_ac_fvtxc_tracks_cos23 = new TProfile(Form("centrality_ac_fvtxc_tracks_cos23"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<sin(n(phi1-phi2-phi3))>>
-  centrality_ac_fvtxc_tracks_sin23 = new TProfile(Form("centrality_ac_fvtxc_tracks_sin23"),"",100, -0.5, 99.5, -1.1, 1.1);
 
   // ---------------------------------------------------------------------------------------------------------
   centrality_ac_fvtxc_tracks_c32 = new TProfile(Form("centrality_ac_fvtxc_tracks_c32"),"",100, -0.5, 99.5, -1.1, 1.1);
@@ -358,18 +334,6 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
 
   // --- correction histograms
 
-  // --- <<cos(n(phi1))>>
-  centrality_os_fvtxc_tracks_cos21 = new TProfile(Form("centrality_os_fvtxc_tracks_cos21"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<sin(n(phi1))>>
-  centrality_os_fvtxc_tracks_sin21 = new TProfile(Form("centrality_os_fvtxc_tracks_sin21"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<cos(n(phi1+phi2))>>
-  centrality_os_fvtxc_tracks_cossum22 = new TProfile(Form("centrality_os_fvtxc_tracks_cossum22"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<sin(n(phi1+phi2))>>
-  centrality_os_fvtxc_tracks_sinsum22 = new TProfile(Form("centrality_os_fvtxc_tracks_sinsum22"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  centrality_os_fvtxc_tracks_cos23 = new TProfile(Form("centrality_os_fvtxc_tracks_cos23"),"",100, -0.5, 99.5, -1.1, 1.1);
-  // --- <<sin(n(phi1-phi2-phi3))>>
-  centrality_os_fvtxc_tracks_sin23 = new TProfile(Form("centrality_os_fvtxc_tracks_sin23"),"",100, -0.5, 99.5, -1.1, 1.1);
 
   // ---------------------------------------------------------------------------------------------------------
   centrality_os_fvtxc_tracks_c32 = new TProfile(Form("centrality_os_fvtxc_tracks_c32"),"",100, -0.5, 99.5, -1.1, 1.1);
@@ -1147,12 +1111,8 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   TComplex tc_ac_fvtxc_tracks_Q3(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3);
   TComplex tc_ac_fvtxc_tracks_Q4(ac_fvtxc_tracks_qx4,ac_fvtxc_tracks_qy4);
   TComplex tc_ac_fvtxc_tracks_Q6(ac_fvtxc_tracks_qx6,ac_fvtxc_tracks_qy6);
-  float ac_fvtxc_tracks_cossum22 = calccossum2_event(tc_ac_fvtxc_tracks_Q2,tc_ac_fvtxc_tracks_Q4,ac_fvtxc_tracks_qw);
-  float ac_fvtxc_tracks_sinsum22 = calcsinsum2_event(tc_ac_fvtxc_tracks_Q2,tc_ac_fvtxc_tracks_Q4,ac_fvtxc_tracks_qw);
   float ac_fvtxc_tracks_cossum32 = calccossum2_event(tc_ac_fvtxc_tracks_Q3,tc_ac_fvtxc_tracks_Q6,ac_fvtxc_tracks_qw);
   float ac_fvtxc_tracks_sinsum32 = calcsinsum2_event(tc_ac_fvtxc_tracks_Q3,tc_ac_fvtxc_tracks_Q6,ac_fvtxc_tracks_qw);
-  float ac_fvtxc_tracks_cos23 = calccos3_event(tc_ac_fvtxc_tracks_Q2,tc_ac_fvtxc_tracks_Q4,ac_fvtxc_tracks_qw);
-  float ac_fvtxc_tracks_sin23 = calcsin3_event(tc_ac_fvtxc_tracks_Q2,tc_ac_fvtxc_tracks_Q4,ac_fvtxc_tracks_qw);
   float ac_fvtxc_tracks_cos33 = calccos3_event(tc_ac_fvtxc_tracks_Q3,tc_ac_fvtxc_tracks_Q6,ac_fvtxc_tracks_qw);
   float ac_fvtxc_tracks_sin33 = calcsin3_event(tc_ac_fvtxc_tracks_Q3,tc_ac_fvtxc_tracks_Q6,ac_fvtxc_tracks_qw);
 
@@ -1296,16 +1256,9 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   // --------------
 
   // --- combined
-  centrality_ac_fvtxc_tracks_cos21->Fill(centrality,ac_fvtxc_tracks_qx2/ac_fvtxc_tracks_qw);
-  centrality_ac_fvtxc_tracks_sin21->Fill(centrality,ac_fvtxc_tracks_qy2/ac_fvtxc_tracks_qw);
   centrality_ac_fvtxc_tracks_c32->Fill(centrality,ac_fvtxc_tracks_qq3); // come back here
   centrality_ac_fvtxc_tracks_cos31->Fill(centrality,ac_fvtxc_tracks_qx3/ac_fvtxc_tracks_qw);
   centrality_ac_fvtxc_tracks_sin31->Fill(centrality,ac_fvtxc_tracks_qy3/ac_fvtxc_tracks_qw);
-  centrality_ac_fvtxc_tracks_cossum22->Fill(centrality,ac_fvtxc_tracks_cossum22);
-  centrality_ac_fvtxc_tracks_sinsum22->Fill(centrality,ac_fvtxc_tracks_sinsum22);
-  centrality_ac_fvtxc_tracks_cos23->Fill(centrality,ac_fvtxc_tracks_cos23);
-  centrality_ac_fvtxc_tracks_sin23->Fill(centrality,ac_fvtxc_tracks_sin23);
-  // --- additional acceptance correction histos
   centrality_ac_fvtxc_tracks_cossum32->Fill(centrality,ac_fvtxc_tracks_cossum32);
   centrality_ac_fvtxc_tracks_sinsum32->Fill(centrality,ac_fvtxc_tracks_sinsum32);
   centrality_ac_fvtxc_tracks_cos33->Fill(centrality,ac_fvtxc_tracks_cos33);
@@ -1436,14 +1389,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   TComplex tc_os_fvtxc_tracks_Q3(os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy3);
   TComplex tc_os_fvtxc_tracks_Q4(os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4);
   TComplex tc_os_fvtxc_tracks_Q6(os_fvtxc_tracks_qx6,os_fvtxc_tracks_qy6);
-  float os_fvtxc_tracks_cossum22 = calccossum2_event(tc_os_fvtxc_tracks_Q2,tc_os_fvtxc_tracks_Q4,os_fvtxc_tracks_qw);
-  float os_fvtxc_tracks_sinsum22 = calcsinsum2_event(tc_os_fvtxc_tracks_Q2,tc_os_fvtxc_tracks_Q4,os_fvtxc_tracks_qw);
-  //float os_fvtxc_tracks_cossum32 = calccossum2_event(tc_os_fvtxc_tracks_Q3,tc_os_fvtxc_tracks_Q6,os_fvtxc_tracks_qw);
-  //float os_fvtxc_tracks_sinsum32 = calcsinsum2_event(tc_os_fvtxc_tracks_Q3,tc_os_fvtxc_tracks_Q6,os_fvtxc_tracks_qw);
-  float os_fvtxc_tracks_cos23 = calccos3_event(tc_os_fvtxc_tracks_Q2,tc_os_fvtxc_tracks_Q4,os_fvtxc_tracks_qw);
-  float os_fvtxc_tracks_sin23 = calcsin3_event(tc_os_fvtxc_tracks_Q2,tc_os_fvtxc_tracks_Q4,os_fvtxc_tracks_qw);
-  //float os_fvtxc_tracks_cos33 = calccos3_event(tc_os_fvtxc_tracks_Q3,tc_os_fvtxc_tracks_Q6,os_fvtxc_tracks_qw);
-  //float os_fvtxc_tracks_sin33 = calcsin3_event(tc_os_fvtxc_tracks_Q3,tc_os_fvtxc_tracks_Q6,os_fvtxc_tracks_qw);
 
   // --- scalar product, fvtxs dot fvtxn
   float os_fvtxsfvtxn_tracks_qq2 = ( (os_fvtxs_tracks_qx2*os_fvtxn_tracks_qx2) + (os_fvtxs_tracks_qy2*os_fvtxn_tracks_qy2) ) / ( os_fvtxs_tracks_qw*os_fvtxn_tracks_qw );
@@ -1552,15 +1497,9 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   // --------------
 
   // --- combined
-  centrality_os_fvtxc_tracks_cos21->Fill(centrality,os_fvtxc_tracks_qx2/os_fvtxc_tracks_qw);
-  centrality_os_fvtxc_tracks_sin21->Fill(centrality,os_fvtxc_tracks_qy2/os_fvtxc_tracks_qw);
   centrality_os_fvtxc_tracks_c32->Fill(centrality,os_fvtxc_tracks_qq3);
   centrality_os_fvtxc_tracks_cos31->Fill(centrality,os_fvtxc_tracks_qx3/os_fvtxc_tracks_qw);
   centrality_os_fvtxc_tracks_sin31->Fill(centrality,os_fvtxc_tracks_qy3/os_fvtxc_tracks_qw);
-  centrality_os_fvtxc_tracks_cossum22->Fill(centrality,os_fvtxc_tracks_cossum22);
-  centrality_os_fvtxc_tracks_sinsum22->Fill(centrality,os_fvtxc_tracks_sinsum22);
-  centrality_os_fvtxc_tracks_cos23->Fill(centrality,os_fvtxc_tracks_cos23);
-  centrality_os_fvtxc_tracks_sin23->Fill(centrality,os_fvtxc_tracks_sin23);
   // --- scalar product
   centrality_os_fvtxsfvtxn_tracks_c32->Fill(centrality,os_fvtxsfvtxn_tracks_qq3);
   centrality_os_fvtxsfvtxn_tracks_c42->Fill(centrality,os_fvtxsfvtxn_tracks_qq4);
