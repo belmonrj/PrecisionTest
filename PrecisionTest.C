@@ -243,28 +243,6 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
   tp1f_track_detacutpass = new TProfile("tp1f_track_detacutpass","",100,-0.5,99.5,-0.1,1.1);
 
 
-  // --- correction histograms
-
-  // --- <<cos(n(phi1))>>
-  // --- <<sin(n(phi1))>>
-  // --- <<cos(n(phi1+phi2))>>
-  // --- <<sin(n(phi1+phi2))>>
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  // --- <<sin(n(phi1-phi2-phi3))>>
-
-  // ---------------------------------------------------------------------------------------------------------
-
-
-  // --- correction histograms
-
-  // --- <<cos(n(phi1))>>
-  // --- <<sin(n(phi1))>>
-  // --- <<cos(n(phi1+phi2))>>
-  // --- <<sin(n(phi1+phi2))>>
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  // --- <<sin(n(phi1-phi2-phi3))>>
-
-
   // ---------------------------------------------------------------------------------------------------------
   // --- centrality
   // ---------------------------------------------------------------------------------------------------------
@@ -296,28 +274,6 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
   // -----------------------------------------------------------------------------------------------------------
 
 
-  // --- correction histograms
-
-  // --- <<cos(n(phi1))>>
-  // --- <<sin(n(phi1))>>
-  // --- <<cos(n(phi1+phi2))>>
-  // --- <<sin(n(phi1+phi2))>>
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  // --- <<sin(n(phi1-phi2-phi3))>>
-
-  // ---------------------------------------------------------------------------------------------------------
-
-  // --- correction histograms
-
-  // --- <<cos(n(phi1))>>
-  // --- <<sin(n(phi1))>>
-  // --- <<cos(n(phi1+phi2))>>
-  // --- <<sin(n(phi1+phi2))>>
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  // --- <<sin(n(phi1-phi2-phi3))>>
-
-
-
   // ---------------------------------------------------------------------------------------------------------
   // --- centrality
   // ---------------------------------------------------------------------------------------------------------
@@ -341,22 +297,6 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
 
   // ---
   // ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   for ( int cs = 0; cs < 2; ++cs )
     {
@@ -1301,20 +1241,7 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   // --- calculations and histograms designed to be used with/for q-vector recentering --- //
   // ------------------------------------------------------------------------------------- //
 
-
-
-
-
-
-
   // --- now centrality
-
-
-
-
-
-
-
 
   // ---
   // --- FVTX south

@@ -58,19 +58,6 @@ class PrecisionTest: public SubsysReco
   float calccos3_event(TComplex&, TComplex&, float);
   float calcsin3_event(TComplex&, TComplex&, float);
 
-  //static const int h1=2;
-  //static const int h2=-2;
-  //static const int h3=2;
-  //static const int h4=-2;
-  //static const int h5=2;
-  //static const int h6=-2;
-  //static const int h7=2;
-  //static const int h8=-2; // simplifed to v2
-  //static const int sum = (h1<0?-1*h1:h1)+(h2<0?-1*h2:h2)+(h3<0?-1*h3:h3)+(h4<0?-1*h4:h4)
-  //  + (h5<0?-1*h5:h5)+(h6<0?-1*h6:h6)+(h7<0?-1*h7:h7)+(h8<0?-1*h8:h8);
-  //static const int maxCorrelator = 8; // We will not go beyond 8-p correlations
-  //static const int maxHarmonic = sum+1;
-  //static const int maxPower = maxCorrelator+1;
   static const int maxCorrelator = 12; // Somewhat abusing the setup as it is...
   static const int maxHarmonic = 10; // Need to assess on case-by-case basis, but this gets you v2{8} and v3{6}
   static const int maxPower = 9;
@@ -209,12 +196,6 @@ class PrecisionTest: public SubsysReco
 
   // --- centrality stuff
 
-  // --- correlation histograms
-  // --- <<cos(n(phi1-phi2))>>
-  // --- <<cos(n(phi1+phi2-phi3-phi4))>>
-  // --- 2-particle scalr product
-  // --- experimental 4-particle correlations
-
   // --- acceptance correction histograms
   // --- 3rd harmonic stuff
   TProfile* centrality_ac_fvtxc_tracks_c32;
@@ -222,46 +203,6 @@ class PrecisionTest: public SubsysReco
   TProfile* centrality_ac_fvtxc_tracks_sin31;
   TProfile* centrality_ac_fvtxsfvtxn_tracks_c42;
   TProfile* centrality_ac_fvtxsfvtxn_tracks_c32;
-
-  // --- come back here
-
-  // --- correlation histograms
-  // --- <<cos(n(phi1-phi2))>>
-  // --- <<cos(n(phi1+phi2-phi3-phi4))>>
-  // --- 2-particle scalr product
-  // --- experimental 4-particle correlations
-
-  // --- acceptance correction histograms
-  // --- <<cos(n(phi1))>>
-  // --- <<sin(n(phi1))>>
-  // --- <<cos(n(phi1+phi2))>>
-  // --- <<sin(n(phi1+phi2))>>
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  // --- <<sin(n(phi1-phi2-phi3))>>
-
-  // --- 3rd harmonic stuff
-  // --- 3rd harmonic stuff
-  // --- correlation histograms
-  // --- <<cos(n(phi1-phi2))>>
-  // --- <<cos(n(phi1+phi2-phi3-phi4))>>
-  // --- 2-particle scalr product
-  // --- experimental 4-particle correlations
-
-  // --- acceptance correction histograms
-  // --- <<cos(n(phi1))>>
-  // --- <<sin(n(phi1))>>
-  // --- <<cos(n(phi1+phi2))>>
-  // --- <<sin(n(phi1+phi2))>>
-  // --- <<cos(n(phi1-phi2-phi3))>>
-  // --- <<sin(n(phi1-phi2-phi3))>>
-
-  // --- centrality stuff
-
-  // --- correlation histograms
-  // --- <<cos(n(phi1-phi2))>>
-  // --- <<cos(n(phi1+phi2-phi3-phi4))>>
-  // --- 2-particle scalr product
-  // --- experimental 4-particle correlations
 
   // --- acceptance correction histograms
   // --- 3rd harmonic stuff
@@ -279,17 +220,7 @@ class PrecisionTest: public SubsysReco
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+  // --- recursion histos
   TProfile* nfvtxt_recursion[2][maxCorrelator];
   TProfile* centrality_recursion[2][maxCorrelator];
   TProfile* nfvtxt_recoffsets[2][maxHarmonic];
