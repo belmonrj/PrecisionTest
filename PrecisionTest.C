@@ -178,6 +178,16 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
         }
     }
 
+  precision_test_flt_3h222 = NULL;
+  precision_test_flt_3hfour = NULL;
+  precision_test_flt_3hcumu = NULL;
+  precision_test_dbl_3h222 = NULL;
+  precision_test_dbl_3hfour = NULL;
+  precision_test_dbl_3hcumu = NULL;
+  precision_test_ldb_3h222 = NULL;
+  precision_test_ldb_3hfour = NULL;
+  precision_test_ldb_3hcumu = NULL;
+
   // --- test double vs long double precision
   for ( int i = 0; i < 100; ++i )
     {
@@ -318,6 +328,16 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
           centrality_recoffsets_south[cs][c] = new TProfile(Form("centrality_recoffsets_south_%d_%d",cs,c),"",100,-0.5,99.5,-1.1,1.1);
         }
     }
+
+  precision_test_flt_3h222  = new TH1D("precision_test_flt_3h222" ,"",100,-0.5,99.5);
+  precision_test_flt_3hfour = new TH1D("precision_test_flt_3hfour","",100,-0.5,99.5);
+  precision_test_flt_3hcumu = new TH1D("precision_test_flt_3hcumu","",100,-0.5,99.5);
+  precision_test_dbl_3h222  = new TH1D("precision_test_dbl_3h222" ,"",100,-0.5,99.5);
+  precision_test_dbl_3hfour = new TH1D("precision_test_dbl_3hfour","",100,-0.5,99.5);
+  precision_test_dbl_3hcumu = new TH1D("precision_test_dbl_3hcumu","",100,-0.5,99.5);
+  precision_test_ldb_3h222  = new TH1D("precision_test_ldb_3h222" ,"",100,-0.5,99.5);
+  precision_test_ldb_3hfour = new TH1D("precision_test_ldb_3hfour","",100,-0.5,99.5);
+  precision_test_ldb_3hcumu = new TH1D("precision_test_ldb_3hcumu","",100,-0.5,99.5);
 
   return EVENT_OK;
 
@@ -1456,18 +1476,51 @@ int PrecisionTest::End(PHCompositeNode *topNode)
       ldb_corr_v32[icent] /= ldb_precision_counter[icent];
       ldb_corr_v34[icent] /= ldb_precision_counter[icent];
       // ---
-      float flt_uncorr_c34 = flt_uncorr_v34[icent] - 2*flt_uncorr_v32[icent]*flt_uncorr_v32[icent];
-      double dbl_uncorr_c34 = dbl_uncorr_v34[icent] - 2*dbl_uncorr_v32[icent]*dbl_uncorr_v32[icent];
-      long double ldb_uncorr_c34 = ldb_uncorr_v34[icent] - 2*ldb_uncorr_v32[icent]*ldb_uncorr_v32[icent];
+      // float flt_uncorr_four = flt_uncorr_v34[icent];
+      // double dbl_uncorr_four = dbl_uncorr_v34[icent];
+      // long double ldb_uncorr_four = ldb_uncorr_v34[icent];
+      // ---
+      // float flt_uncorr_222 = 2*flt_uncorr_v32[icent]*flt_uncorr_v32[icent];
+      // double dbl_uncorr_222 = 2*dbl_uncorr_v32[icent]*dbl_uncorr_v32[icent];
+      // long double ldb_uncorr_222 = 2*ldb_uncorr_v32[icent]*ldb_uncorr_v32[icent];
+      // ---
+      // float flt_uncorr_c34 = flt_uncorr_v34[icent] - 2*flt_uncorr_v32[icent]*flt_uncorr_v32[icent];
+      // double dbl_uncorr_c34 = dbl_uncorr_v34[icent] - 2*dbl_uncorr_v32[icent]*dbl_uncorr_v32[icent];
+      // long double ldb_uncorr_c34 = ldb_uncorr_v34[icent] - 2*ldb_uncorr_v32[icent]*ldb_uncorr_v32[icent];
+      // ---
+      float flt_corr_four = flt_corr_v34[icent];
+      double dbl_corr_four = dbl_corr_v34[icent];
+      long double ldb_corr_four = ldb_corr_v34[icent];
+      // ---
+      float flt_corr_222 = 2*flt_corr_v32[icent]*flt_corr_v32[icent];
+      double dbl_corr_222 = 2*dbl_corr_v32[icent]*dbl_corr_v32[icent];
+      long double ldb_corr_222 = 2*ldb_corr_v32[icent]*ldb_corr_v32[icent];
+      // ---
+      float flt_corr_c34 = flt_corr_v34[icent] - 2*flt_corr_v32[icent]*flt_corr_v32[icent];
+      double dbl_corr_c34 = dbl_corr_v34[icent] - 2*dbl_corr_v32[icent]*dbl_corr_v32[icent];
+      long double ldb_corr_c34 = ldb_corr_v34[icent] - 2*ldb_corr_v32[icent]*ldb_corr_v32[icent];
       if ( icent % 10 == 0 )
         {
           cout << "------------------------------------------------------------------------------------------" << endl;
           cout << "centrality " << icent << endl;
           printf(" <4> float       %.50f \n <4> double      %.50f \n <4> long double %.50Lf \n",
-                 flt_uncorr_v34[icent],dbl_uncorr_v34[icent],ldb_uncorr_v34[icent]);
+                 flt_corr_v34[icent],dbl_corr_v34[icent],ldb_corr_v34[icent]);
           printf(" c3{4} float       %.50f \n c3{4} double      %.50f \n c3{4} long double %.50Lf \n",
-                 flt_uncorr_c34,dbl_uncorr_c34,ldb_uncorr_c34);
+                 flt_corr_c34,dbl_corr_c34,ldb_corr_c34);
         } // end if
+      // ---
+      precision_test_flt_3h222->SetBinContent(icent+1,flt_corr_222);
+      precision_test_flt_3hfour->SetBinContent(icent+1,flt_corr_four);
+      precision_test_flt_3hcumu->SetBinContent(icent+1,flt_corr_c34);
+      // ---
+      precision_test_dbl_3h222->SetBinContent(icent+1,dbl_corr_222);
+      precision_test_dbl_3hfour->SetBinContent(icent+1,dbl_corr_four);
+      precision_test_dbl_3hcumu->SetBinContent(icent+1,dbl_corr_c34);
+      // ---
+      precision_test_ldb_3h222->SetBinContent(icent+1,ldb_corr_222);
+      precision_test_ldb_3hfour->SetBinContent(icent+1,ldb_corr_four);
+      precision_test_ldb_3hcumu->SetBinContent(icent+1,ldb_corr_c34);
+
     } // end loop over icent
 
   cout << "------------------------------------------------------------------------------------------" << endl << endl;

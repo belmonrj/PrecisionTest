@@ -232,9 +232,18 @@ class PrecisionTest: public SubsysReco
 
 
 
+  // --- precision test histograms...
+  TH1D* precision_test_flt_3h222;
+  TH1D* precision_test_flt_3hfour;
+  TH1D* precision_test_flt_3hcumu;
+  TH1D* precision_test_dbl_3h222;
+  TH1D* precision_test_dbl_3hfour;
+  TH1D* precision_test_dbl_3hcumu;
+  TH1D* precision_test_ldb_3h222;
+  TH1D* precision_test_ldb_3hfour;
+  TH1D* precision_test_ldb_3hcumu;
+
 };
 
 #endif /* __PrecisionTest_H__ */
-
-
 
