@@ -108,67 +108,67 @@ public:
 
    static LDComplex exp(const LDComplex &c)
       {return LDComplex(exp(c.fRe),c.fIm,kTRUE);}
-   static LDComplex log(const LDComplex &c)
-      {return LDComplex(0.5*log(c.Rho2()),c.Theta());}
-   static LDComplex log2(const LDComplex &c)
-      {return log(c)/log(2);}
-   static LDComplex log10(const LDComplex &c)
-      {return log(c)/log(10);}
+   //static LDComplex log(const LDComplex &c)
+   //   {return LDComplex(0.5*log(c.Rho2()),c.Theta());}
+   //static LDComplex log2(const LDComplex &c)
+   //   {return log(c)/log(2);}
+   //static LDComplex log10(const LDComplex &c)
+   //   {return log(c)/log(10);}
 
-   static LDComplex sin(const LDComplex &c)
-      {return LDComplex(sin(c.fRe)*cosh(c.fIm),
-                       cos(c.fRe)*sinh(c.fIm));}
-   static LDComplex cos(const LDComplex &c)
-      {return LDComplex(cos(c.fRe)*cosh(c.fIm),
-                       -sin(c.fRe)*sinh(c.fIm));}
-   static LDComplex tan(const LDComplex &c)
-      {LDComplex cc=cos(c); return sin(c)*Conjugate(cc)/cc.Rho2();}
+   //static LDComplex sin(const LDComplex &c)
+   //   {return LDComplex(sin(c.fRe)*cosh(c.fIm),
+   //                    cos(c.fRe)*sinh(c.fIm));}
+   //static LDComplex cos(const LDComplex &c)
+   //   {return LDComplex(cos(c.fRe)*cosh(c.fIm),
+   //                    -sin(c.fRe)*sinh(c.fIm));}
+   //static LDComplex tan(const LDComplex &c)
+   //   {LDComplex cc=cos(c); return sin(c)*Conjugate(cc)/cc.Rho2();}
 
-   static LDComplex asin(const LDComplex &c)
-      {return -I()*log(I()*c+Sign(1.,c.Im())*sqrt(1.-c*c));}
-   static LDComplex acos(const LDComplex &c)
-      {return -I()*log(c+Sign(1.,c.Im())*sqrt(c*c-1.));}
-   static LDComplex atan(const LDComplex &c)
-      {return -0.5*I()*log((1.+I()*c)/(1.-I()*c));}
+   //static LDComplex asin(const LDComplex &c)
+   //   {return -I()*log(I()*c+TMath::Sign(1.,c.Im())*sqrt(1.-c*c));}
+   //static LDComplex acos(const LDComplex &c)
+   //   {return -I()*log(c+TMath::Sign(1.,c.Im())*sqrt(c*c-1.));}
+   //static LDComplex atan(const LDComplex &c)
+   //   {return -0.5*I()*log((1.+I()*c)/(1.-I()*c));}
 
-   static LDComplex sinh(const LDComplex &c)
-      {return LDComplex(sinh(c.fRe)*cos(c.fIm),
-                       cosh(c.fRe)*sin(c.fIm));}
-   static LDComplex cosh(const LDComplex &c)
-      {return LDComplex(cosh(c.fRe)*cos(c.fIm),
-                       sinh(c.fRe)*sin(c.fIm));}
-   static LDComplex tanh(const LDComplex &c)
-      {LDComplex cc=cosh(c); return sinh(c)*Conjugate(cc)/cc.Rho2();}
+   //static LDComplex sinh(const LDComplex &c)
+   //   {return LDComplex(sinh(c.fRe)*cos(c.fIm),
+   //                    cosh(c.fRe)*sin(c.fIm));}
+   //static LDComplex cosh(const LDComplex &c)
+   //   {return LDComplex(cosh(c.fRe)*cos(c.fIm),
+   //                    sinh(c.fRe)*sin(c.fIm));}
+   //static LDComplex tanh(const LDComplex &c)
+   //   {LDComplex cc=cosh(c); return sinh(c)*Conjugate(cc)/cc.Rho2();}
 
-   static LDComplex asinh(const LDComplex &c)
-      {return log(c+Sign(1.,c.Im())*sqrt(c*c+1.));}
-   static LDComplex acosh(const LDComplex &c)
-      {return log(c+Sign(1.,c.Im())*sqrt(c*c-1.));}
-   static LDComplex atanh(const LDComplex &c)
-      {return 0.5*log((1.+c)/(1.-c));}
+   //static LDComplex asinh(const LDComplex &c)
+   //   {return log(c+TMath::Sign(1.,c.Im())*sqrt(c*c+1.));}
+   //static LDComplex acosh(const LDComplex &c)
+   //   {return log(c+TMath::Sign(1.,c.Im())*sqrt(c*c-1.));}
+   //static LDComplex atanh(const LDComplex &c)
+   //   {return 0.5*log((1.+c)/(1.-c));}
 
    static long double fabs(const LDComplex &c)
       {return c.Rho();}
 
-   static LDComplex pow(const LDComplex& x, const LDComplex& y)
-      {long double lrho=log(x.Rho());
-       long double theta=x.Theta();
-       return LDComplex(exp(lrho*y.Re()-theta*y.Im()),
-                       lrho*y.Im()+theta*y.Re(),kTRUE);}
-   static LDComplex pow(const LDComplex& x, long double y)
-      {return LDComplex(pow(x.Rho(),y),x.Theta()*y,kTRUE);}
-   static LDComplex pow(long double x, const LDComplex& y)
-      {long double lrho=log(fabs(x));
-       long double theta=(x>0)?0:Pi();
-       return LDComplex(exp(lrho*y.Re()-theta*y.Im()),
-                       lrho*y.Im()+theta*y.Re(),kTRUE);}
-   static LDComplex pow(const LDComplex& x, int y)
-      {return LDComplex(pow(x.Rho(),y),x.Theta()*y,kTRUE);}
+   //static LDComplex pow(const LDComplex& x, const LDComplex& y)
+   //   {long double lrho=log(x.Rho());
+   //    long double theta=x.Theta();
+   //    return LDComplex(exp(lrho*y.Re()-theta*y.Im()),
+   //                    lrho*y.Im()+theta*y.Re(),kTRUE);}
+   //static LDComplex pow(const LDComplex& x, long double y)
+   //   {return LDComplex(pow(x.Rho(),y),x.Theta()*y,kTRUE);}
+   //static LDComplex pow(long double x, const LDComplex& y)
+   //   {long double lrho=log(fabs(x));
+   //    long double theta=(x>0)?0:Pi();
+   //    return LDComplex(exp(lrho*y.Re()-theta*y.Im()),
+   //                    lrho*y.Im()+theta*y.Re(),kTRUE);}
+   //static LDComplex pow(const LDComplex& x, int y)
+   //   {return LDComplex(pow(x.Rho(),y),x.Theta()*y,kTRUE);}
 
-   static int isfinite(const LDComplex& c)
-      {return Min(isfinite(c.Re()),isfinite(c.Im()));}
-   static int isnan(const LDComplex& c)
-      {return Max(isnan(c.Re()),isnan(c.Im()));}
+   //static int isfinite(const LDComplex& c)
+   //   {return Min(isfinite(c.Re()),isfinite(c.Im()));}
+   //static int isnan(const LDComplex& c)
+   //   {return Max(isnan(c.Re()),isnan(c.Im()));}
 
    static LDComplex Min(const LDComplex &a, const LDComplex &b)
       {return a.Rho()<=b.Rho()?a:b;}

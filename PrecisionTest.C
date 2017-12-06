@@ -18,6 +18,7 @@
 #include <TH2D.h>
 #include <TProfile.h>
 #include <TComplex.h>
+#include <LDComplex.h>
 
 // Fun4All includes...
 #include <Fun4AllReturnCodes.h>

@@ -5,6 +5,7 @@
 #include <string>
 #include <SubsysReco.h>
 #include "TComplex.h"
+#include "LDComplex.h"
 
 
 class Fun4AllHistoManager;
@@ -82,6 +83,15 @@ class PrecisionTest: public SubsysReco
   TComplex Q(int, int);
   TComplex Recursion(int, int*);
   TComplex Recursion(int, int*, int, int);
+  LDComplex LDQvector[maxHarmonic][maxPower]; // All needed Q-vector components
+  LDComplex LDQvector_north[maxHarmonic][maxPower];
+  LDComplex LDQvector_south[maxHarmonic][maxPower];
+  LDComplex LDQoffset[maxHarmonic][maxPower];
+  LDComplex LDQoffset_north[maxHarmonic][maxPower];
+  LDComplex LDQoffset_south[maxHarmonic][maxPower];
+  LDComplex LDQ(int, int);
+  LDComplex LDRecursion(int, int*);
+  LDComplex LDRecursion(int, int*, int, int);
 
   // ---------------------------------------------------------------------
   static const int maxTracks = 650; // accept no more FVTX tracks than this

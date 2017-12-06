@@ -10,6 +10,7 @@ lib_LTLIBRARIES = \
 
 noinst_HEADERS = \
   PrecisionTest.h \
+  LDComplex.h \
   PrecisionTestLinkDef.h
 
 libPrecisionTest_la_SOURCES = \
@@ -18,6 +19,7 @@ libPrecisionTest_la_SOURCES = \
   PrecisionTestOffsets.C \
   PrecisionTestOffsetsRBR.C \
   PrecisionTestSpecialEventCuts.C \
+  LDComplex.cxx \
   PrecisionTest_Dict.C
 
 libPrecisionTest_la_LIBADD = \
