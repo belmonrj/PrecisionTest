@@ -5,7 +5,6 @@ void Run_PrecisionTest(const char *outFile = "test_train_output.root")
   //--- Libraries ---//
   //-----------------//
 
-  gSystem->Load("libdAuBES_utils.so");
   gSystem->Load("libPrecisionTest.so");
   gSystem->ListLibraries();
 

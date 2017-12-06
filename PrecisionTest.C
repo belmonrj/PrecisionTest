@@ -36,7 +36,6 @@
 #include <TFvtxCompactTrkMap.h>
 #include <TFvtxCompactCoordMap.h>
 #include <PreviousEvent.h>
-#include "dAuBES_utils.h"
 
 
 // ------------------------
@@ -64,10 +63,7 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
   _cut_nhit = 3;
   _cut_dca = 2.0;
   _runlist_filename = "NULL";
-  _utils = NULL;
   _collsys = "NULL";
-
-  use_utils = true;
 
   tmp_evt = 0;
 
@@ -214,7 +210,7 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
 // --- class destructor
 PrecisionTest::~PrecisionTest()
 {
-  //if ( _utils ) delete _utils;
+
 }
 
 
@@ -358,28 +354,17 @@ int PrecisionTest::InitRun(PHCompositeNode *topNode)
   }
   runnumber = rh->get_RunNumber();
 
-  // --- then set again
+  // --- set Q-vector offsets for each run
   SetQvectorOffsets(runnumber);
   SetQvectorOffsetsRBR(runnumber);
 
-
-
-  // Setup the utility class
-  // This is done in init run so that the collision system can be
-  // determined from the run number
-  _collsys = "Run16dAu200"; // default to 200 GeV
-  use_utils = true;
+  _collsys = "Unknown";
   // --- Run14AuAu200
   if ( runnumber >= 405839 && runnumber <= 414988 )
-    {
-      _collsys = "Run14AuAu200";
-      use_utils = false;
-    }
+    _collsys = "Run14AuAu200";
+  // --- Run14HeAu200
   if ( runnumber >= 415370 && runnumber <= 416893 )
-    {
-      _collsys = "Run14HeAu200";
-      use_utils = false;
-    }
+    _collsys = "Run14HeAu200";
   // --- Run15pAu200
   if ( runnumber >= 432637 && runnumber <= 436647 )
     _collsys = "Run15pAu200";
@@ -399,17 +384,8 @@ int PrecisionTest::InitRun(PHCompositeNode *topNode)
   if ( runnumber >= 457634 && runnumber <= 458167 )
     _collsys = "Run16dAu39";
 
-  // --- delete this pointer in EndRun
-  if ( use_utils )
-    {
-      cout << "initializing uitls..." << _utils << endl;
-      _utils = new dAuBES_utils(_collsys, true);
-      cout << "done initializing utils? " << _utils << endl;
-    }
-  // _utils->is_sim(_is_sim);
-
-
   return EVENT_OK;
+
 }
 
 
@@ -537,15 +513,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
   if ( _verbosity > 1 ) cout << "applying event selection criteria" << endl;
 
-  if ( use_utils )
-    {
-      if ( _verbosity > 1 ) cout << "using utils to check if event is ok " << endl;
-      if (!_utils->is_event_ok(topNode)) return EVENT_OK;
-      if ( _verbosity > 1 ) cout << "event passed utils check " << endl;
-    }
-
-
-
   //---------------------------------------------------------//
   //
   //         Reading in Global Event Information into Tree
@@ -572,8 +539,8 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   trigger_scaled = triggers->get_lvl1_trigscaled();
   trigger_live = triggers->get_lvl1_triglive();
 
-  if ( !use_utils && centrality < 0  ) return EVENT_OK;
-  if ( !use_utils && centrality > 99 ) return EVENT_OK;
+  if ( centrality < 0  ) return EVENT_OK;
+  if ( centrality > 99 ) return EVENT_OK;
 
 
 
@@ -582,7 +549,7 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   bbc_z = vertex1.getZ();
   if ( bbc_z != bbc_z ) bbc_z = -9999; // reassign nan
 
-  if ( !use_utils && fabs(bbc_z) > _cut_zvtx ) return EVENT_OK;
+  if ( fabs(bbc_z) > _cut_zvtx ) return EVENT_OK;
 
   PHPoint fvtx_vertex = vertexes->get_Vertex("FVTX");
   FVTX_X = fvtx_vertex.getX();
@@ -593,12 +560,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   // cout << endl;
   // cout << "--- starting vertex checking ---" << endl;
   float zvtx = bbc_z;
-  if ( use_utils )
-    {
-      if ( _verbosity > 1 ) cout << "using utils to get vertex " << endl;
-      zvtx = _utils->get_vrtx(topNode);
-      if ( _verbosity > 1 ) cout << "got the vertex from utils" << endl;
-    }
 
   if ( _verbosity > 1 ) cout << "FVTX vertex points: " << FVTX_X << " " << FVTX_Y << " " << FVTX_Z << endl;
 
@@ -706,13 +667,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
       int nhits_special = pattern0 + pattern2 + pattern4 + pattern6;
 
       ++nfvtxt_raw;
-      // --- use the utility class to make the track selections
-      if ( use_utils )
-	{
-	  if ( _verbosity > 2 ) cout << "using utils to check if the track is ok " << endl;
-	  if ( !_utils->is_fvtx_track_ok(fvtx_trk, zvtx) ) continue;
-	  if ( _verbosity > 2 ) cout << "track pass utils " << endl;
-	}
 
       long double the = fvtx_trk->get_fvtx_theta();
       long double eta = fvtx_trk->get_fvtx_eta();
@@ -737,33 +691,19 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
       if ( nhits_special < default_cut_nhit ) continue; // need at least 3 hits in FVTX, excluding VTX
 
       // fix total momentum to 1.0 (for rotating due to beamtilt)
-      double px = 1.0 * sin(the) * cos(phi);
-      double py = 1.0 * sin(the) * sin(phi);
-      double pz = 1.0 * cos(the);
-
-      if ( use_utils )
-	{
-	  // rotate based on beamtilt, need to do both rotations with lab frame coordinates
-	  double pxprime = _utils->rotate_x(px, pz);
-	  double pzprime = _utils->rotate_z(px, pz);
-	  // now reassign px and pz to the new rotated frame coordinates
-	  px = pxprime;
-	  pz = pzprime;
-	  phi = TMath::ATan2(py, px);
-	  the = TMath::ACos(pz / TMath::Sqrt(px * px + py * py + pz * pz));
-	}
+      // double px = 1.0 * sin(the) * cos(phi);
+      // double py = 1.0 * sin(the) * sin(phi);
+      // double pz = 1.0 * cos(the);
 
       long double vertex_z = zvtx;
       if ( FVTX_Z > -999 ) vertex_z = FVTX_Z;
       long double DCA_x      = fvtx_x + tan(the) * cos(phi) * (vertex_z - fvtx_z);
       long double DCA_y      = fvtx_y + tan(the) * sin(phi) * (vertex_z - fvtx_z);
 
-      if ( !use_utils )
-        {
-          if ( fabs(DCA_x) > default_cut_dca || fabs(DCA_y) > default_cut_dca ) continue;
-          if ( nhits < default_cut_nhit ) continue;
-          if ( chisq > default_cut_chi2 ) continue;
-        }
+      if ( fabs(DCA_x) > default_cut_dca || fabs(DCA_y) > default_cut_dca ) continue;
+      if ( nhits < default_cut_nhit ) continue;
+      if ( chisq > default_cut_chi2 ) continue;
+
       // --- done with first loop, so push the eta and phi and count total number of good tracks
       fphi.push_back(phi);
       feta.push_back(eta);
@@ -1449,7 +1389,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
 int PrecisionTest::EndRun(PHCompositeNode *topNode)
 {
-  if ( _utils ) delete _utils;
   return EVENT_OK;
 }
 

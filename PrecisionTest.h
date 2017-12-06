@@ -9,7 +9,6 @@
 
 
 class Fun4AllHistoManager;
-class dAuBES_utils;
 class TFile;
 class TTree;
 class TH1D;
@@ -134,10 +133,8 @@ class PrecisionTest: public SubsysReco
   //run list stuff
   bool _use_runlist;
   std::string _runlist_filename;
-
-  dAuBES_utils* _utils;            ///< Utilities class
-  bool use_utils;
   std::string _collsys;
+
 
   int tmp_evt;
 
