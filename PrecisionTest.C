@@ -1231,10 +1231,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   long double ac_fvtxs_tracks_qy4 = fvtxs_tracks_qy4[0];
   long double ac_fvtxs_tracks_qx6 = fvtxs_tracks_qx6[0];
   long double ac_fvtxs_tracks_qy6 = fvtxs_tracks_qy6[0];
-  float ac_fvtxs_tracks_qq2 = flt_calc2_event(ac_fvtxs_tracks_qx2,ac_fvtxs_tracks_qy2,ac_fvtxs_tracks_qw);
-  float ac_fvtxs_tracks_qq3 = flt_calc2_event(ac_fvtxs_tracks_qx3,ac_fvtxs_tracks_qy3,ac_fvtxs_tracks_qw);
-  double dbl_ac_fvtxs_tracks_qq2 = dbl_calc2_event(ac_fvtxs_tracks_qx2,ac_fvtxs_tracks_qy2,ac_fvtxs_tracks_qw);
-  double dbl_ac_fvtxs_tracks_qq3 = dbl_calc2_event(ac_fvtxs_tracks_qx3,ac_fvtxs_tracks_qy3,ac_fvtxs_tracks_qw);
+  float ac_fvtxs_tracks_qq2 = flt_calc2_event((float)ac_fvtxs_tracks_qx2,(float)ac_fvtxs_tracks_qy2,(float)ac_fvtxs_tracks_qw);
+  float ac_fvtxs_tracks_qq3 = flt_calc2_event((float)ac_fvtxs_tracks_qx3,(float)ac_fvtxs_tracks_qy3,(float)ac_fvtxs_tracks_qw);
+  double dbl_ac_fvtxs_tracks_qq2 = dbl_calc2_event((double)ac_fvtxs_tracks_qx2,(double)ac_fvtxs_tracks_qy2,(double)ac_fvtxs_tracks_qw);
+  double dbl_ac_fvtxs_tracks_qq3 = dbl_calc2_event((double)ac_fvtxs_tracks_qx3,(double)ac_fvtxs_tracks_qy3,(double)ac_fvtxs_tracks_qw);
   long double ldb_ac_fvtxs_tracks_qq2 = ldb_calc2_event(ac_fvtxs_tracks_qx2,ac_fvtxs_tracks_qy2,ac_fvtxs_tracks_qw);
   long double ldb_ac_fvtxs_tracks_qq3 = ldb_calc2_event(ac_fvtxs_tracks_qx3,ac_fvtxs_tracks_qy3,ac_fvtxs_tracks_qw);
 
@@ -1248,10 +1248,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   long double ac_fvtxn_tracks_qy4 = fvtxn_tracks_qy4[0];
   long double ac_fvtxn_tracks_qx6 = fvtxn_tracks_qx6[0];
   long double ac_fvtxn_tracks_qy6 = fvtxn_tracks_qy6[0];
-  float ac_fvtxn_tracks_qq2 = flt_calc2_event(ac_fvtxn_tracks_qx2,ac_fvtxn_tracks_qy2,ac_fvtxn_tracks_qw);
-  float ac_fvtxn_tracks_qq3 = flt_calc2_event(ac_fvtxn_tracks_qx3,ac_fvtxn_tracks_qy3,ac_fvtxn_tracks_qw);
-  double dbl_ac_fvtxn_tracks_qq2 = dbl_calc2_event(ac_fvtxn_tracks_qx2,ac_fvtxn_tracks_qy2,ac_fvtxn_tracks_qw);
-  double dbl_ac_fvtxn_tracks_qq3 = dbl_calc2_event(ac_fvtxn_tracks_qx3,ac_fvtxn_tracks_qy3,ac_fvtxn_tracks_qw);
+  float ac_fvtxn_tracks_qq2 = flt_calc2_event((float)ac_fvtxn_tracks_qx2,(float)ac_fvtxn_tracks_qy2,(float)ac_fvtxn_tracks_qw);
+  float ac_fvtxn_tracks_qq3 = flt_calc2_event((float)ac_fvtxn_tracks_qx3,(float)ac_fvtxn_tracks_qy3,(float)ac_fvtxn_tracks_qw);
+  double dbl_ac_fvtxn_tracks_qq2 = dbl_calc2_event((double)ac_fvtxn_tracks_qx2,(double)ac_fvtxn_tracks_qy2,(double)ac_fvtxn_tracks_qw);
+  double dbl_ac_fvtxn_tracks_qq3 = dbl_calc2_event((double)ac_fvtxn_tracks_qx3,(double)ac_fvtxn_tracks_qy3,(double)ac_fvtxn_tracks_qw);
   long double ldb_ac_fvtxn_tracks_qq2 = ldb_calc2_event(ac_fvtxn_tracks_qx2,ac_fvtxn_tracks_qy2,ac_fvtxn_tracks_qw);
   long double ldb_ac_fvtxn_tracks_qq3 = ldb_calc2_event(ac_fvtxn_tracks_qx3,ac_fvtxn_tracks_qy3,ac_fvtxn_tracks_qw);
 
@@ -1265,10 +1265,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   long double ac_fvtxc_tracks_qx6 = ac_fvtxs_tracks_qx6 + ac_fvtxn_tracks_qx6;
   long double ac_fvtxc_tracks_qy6 = ac_fvtxs_tracks_qy6 + ac_fvtxn_tracks_qy6;
   long double ac_fvtxc_tracks_qw = ac_fvtxs_tracks_qw + ac_fvtxn_tracks_qw;
-  float ac_fvtxc_tracks_qq2 = flt_calc2_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qw);
-  float ac_fvtxc_tracks_qq3 = flt_calc2_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qw);
-  double dbl_ac_fvtxc_tracks_qq2 = dbl_calc2_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qw);
-  double dbl_ac_fvtxc_tracks_qq3 = dbl_calc2_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qw);
+  float ac_fvtxc_tracks_qq2 = flt_calc2_event((float)ac_fvtxc_tracks_qx2,(float)ac_fvtxc_tracks_qy2,(float)ac_fvtxc_tracks_qw);
+  float ac_fvtxc_tracks_qq3 = flt_calc2_event((float)ac_fvtxc_tracks_qx3,(float)ac_fvtxc_tracks_qy3,(float)ac_fvtxc_tracks_qw);
+  double dbl_ac_fvtxc_tracks_qq2 = dbl_calc2_event((double)ac_fvtxc_tracks_qx2,(double)ac_fvtxc_tracks_qy2,(double)ac_fvtxc_tracks_qw);
+  double dbl_ac_fvtxc_tracks_qq3 = dbl_calc2_event((double)ac_fvtxc_tracks_qx3,(double)ac_fvtxc_tracks_qy3,(double)ac_fvtxc_tracks_qw);
   long double ldb_ac_fvtxc_tracks_qq2 = ldb_calc2_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qw);
   long double ldb_ac_fvtxc_tracks_qq3 = ldb_calc2_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qw);
   TComplex tc_ac_fvtxc_tracks_Q2(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2);
@@ -1293,10 +1293,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
   // --- now have a look at some 4 particle cumulants
   // --- calc4_event has the protection/requirement on the minimum number of tracks
-  float ac_fvtxc_tracks_qqqq24 = flt_calc4_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qx4,ac_fvtxc_tracks_qy4,ac_fvtxc_tracks_qw);
-  float ac_fvtxc_tracks_qqqq34 = flt_calc4_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qx6,ac_fvtxc_tracks_qy6,ac_fvtxc_tracks_qw);
-  double dbl_ac_fvtxc_tracks_qqqq24 = dbl_calc4_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qx4,ac_fvtxc_tracks_qy4,ac_fvtxc_tracks_qw);
-  double dbl_ac_fvtxc_tracks_qqqq34 = dbl_calc4_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qx6,ac_fvtxc_tracks_qy6,ac_fvtxc_tracks_qw);
+  float ac_fvtxc_tracks_qqqq24 = flt_calc4_event((float)ac_fvtxc_tracks_qx2,(float)ac_fvtxc_tracks_qy2,(float)ac_fvtxc_tracks_qx4,(float)ac_fvtxc_tracks_qy4,(float)ac_fvtxc_tracks_qw);
+  float ac_fvtxc_tracks_qqqq34 = flt_calc4_event((float)ac_fvtxc_tracks_qx3,(float)ac_fvtxc_tracks_qy3,(float)ac_fvtxc_tracks_qx6,(float)ac_fvtxc_tracks_qy6,(float)ac_fvtxc_tracks_qw);
+  double dbl_ac_fvtxc_tracks_qqqq24 = dbl_calc4_event((double)ac_fvtxc_tracks_qx2,(double)ac_fvtxc_tracks_qy2,(double)ac_fvtxc_tracks_qx4,(double)ac_fvtxc_tracks_qy4,(double)ac_fvtxc_tracks_qw);
+  double dbl_ac_fvtxc_tracks_qqqq34 = dbl_calc4_event((double)ac_fvtxc_tracks_qx3,(double)ac_fvtxc_tracks_qy3,(double)ac_fvtxc_tracks_qx6,(double)ac_fvtxc_tracks_qy6,(double)ac_fvtxc_tracks_qw);
   long double ldb_ac_fvtxc_tracks_qqqq24 = ldb_calc4_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qx4,ac_fvtxc_tracks_qy4,ac_fvtxc_tracks_qw);
   long double ldb_ac_fvtxc_tracks_qqqq34 = ldb_calc4_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qx6,ac_fvtxc_tracks_qy6,ac_fvtxc_tracks_qw);
   if ( _verbosity > 1000 ) cout << ac_fvtxc_tracks_qqqq24 << " " << ac_fvtxc_tracks_qqqq34 << endl;
@@ -1568,10 +1568,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   long double os_fvtxs_tracks_qy4 = fvtxs_tracks_qy4[0] - offset_centrality_qy4_south[icent]*os_fvtxs_tracks_qw;
   long double os_fvtxs_tracks_qx6 = fvtxs_tracks_qx6[0] - offset_centrality_qx6_south[icent]*os_fvtxs_tracks_qw;
   long double os_fvtxs_tracks_qy6 = fvtxs_tracks_qy6[0] - offset_centrality_qy6_south[icent]*os_fvtxs_tracks_qw;
-  float os_fvtxs_tracks_qq2 = flt_calc2_event(os_fvtxs_tracks_qx2,os_fvtxs_tracks_qy2,os_fvtxs_tracks_qw);
-  float os_fvtxs_tracks_qq3 = flt_calc2_event(os_fvtxs_tracks_qx3,os_fvtxs_tracks_qy3,os_fvtxs_tracks_qw);
-  double dbl_os_fvtxs_tracks_qq2 = dbl_calc2_event(os_fvtxs_tracks_qx2,os_fvtxs_tracks_qy2,os_fvtxs_tracks_qw);
-  double dbl_os_fvtxs_tracks_qq3 = dbl_calc2_event(os_fvtxs_tracks_qx3,os_fvtxs_tracks_qy3,os_fvtxs_tracks_qw);
+  float os_fvtxs_tracks_qq2 = flt_calc2_event((float)os_fvtxs_tracks_qx2,(float)os_fvtxs_tracks_qy2,(float)os_fvtxs_tracks_qw);
+  float os_fvtxs_tracks_qq3 = flt_calc2_event((float)os_fvtxs_tracks_qx3,(float)os_fvtxs_tracks_qy3,(float)os_fvtxs_tracks_qw);
+  double dbl_os_fvtxs_tracks_qq2 = dbl_calc2_event((double)os_fvtxs_tracks_qx2,(double)os_fvtxs_tracks_qy2,(double)os_fvtxs_tracks_qw);
+  double dbl_os_fvtxs_tracks_qq3 = dbl_calc2_event((double)os_fvtxs_tracks_qx3,(double)os_fvtxs_tracks_qy3,(double)os_fvtxs_tracks_qw);
   long double ldb_os_fvtxs_tracks_qq2 = ldb_calc2_event(os_fvtxs_tracks_qx2,os_fvtxs_tracks_qy2,os_fvtxs_tracks_qw);
   long double ldb_os_fvtxs_tracks_qq3 = ldb_calc2_event(os_fvtxs_tracks_qx3,os_fvtxs_tracks_qy3,os_fvtxs_tracks_qw);
 
@@ -1585,10 +1585,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   long double os_fvtxn_tracks_qy4 = fvtxn_tracks_qy4[0] - offset_centrality_qy4_north[icent]*os_fvtxn_tracks_qw;
   long double os_fvtxn_tracks_qx6 = fvtxn_tracks_qx6[0] - offset_centrality_qx6_north[icent]*os_fvtxn_tracks_qw;
   long double os_fvtxn_tracks_qy6 = fvtxn_tracks_qy6[0] - offset_centrality_qy6_north[icent]*os_fvtxn_tracks_qw;
-  float os_fvtxn_tracks_qq2 = flt_calc2_event(os_fvtxn_tracks_qx2,os_fvtxn_tracks_qy2,os_fvtxn_tracks_qw);
-  float os_fvtxn_tracks_qq3 = flt_calc2_event(os_fvtxn_tracks_qx3,os_fvtxn_tracks_qy3,os_fvtxn_tracks_qw);
-  double dbl_os_fvtxn_tracks_qq2 = dbl_calc2_event(os_fvtxn_tracks_qx2,os_fvtxn_tracks_qy2,os_fvtxn_tracks_qw);
-  double dbl_os_fvtxn_tracks_qq3 = dbl_calc2_event(os_fvtxn_tracks_qx3,os_fvtxn_tracks_qy3,os_fvtxn_tracks_qw);
+  float os_fvtxn_tracks_qq2 = flt_calc2_event((float)os_fvtxn_tracks_qx2,(float)os_fvtxn_tracks_qy2,(float)os_fvtxn_tracks_qw);
+  float os_fvtxn_tracks_qq3 = flt_calc2_event((float)os_fvtxn_tracks_qx3,(float)os_fvtxn_tracks_qy3,(float)os_fvtxn_tracks_qw);
+  double dbl_os_fvtxn_tracks_qq2 = dbl_calc2_event((double)os_fvtxn_tracks_qx2,(double)os_fvtxn_tracks_qy2,(double)os_fvtxn_tracks_qw);
+  double dbl_os_fvtxn_tracks_qq3 = dbl_calc2_event((double)os_fvtxn_tracks_qx3,(double)os_fvtxn_tracks_qy3,(double)os_fvtxn_tracks_qw);
   long double ldb_os_fvtxn_tracks_qq2 = ldb_calc2_event(os_fvtxn_tracks_qx2,os_fvtxn_tracks_qy2,os_fvtxn_tracks_qw);
   long double ldb_os_fvtxn_tracks_qq3 = ldb_calc2_event(os_fvtxn_tracks_qx3,os_fvtxn_tracks_qy3,os_fvtxn_tracks_qw);
 
@@ -1602,10 +1602,10 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   long double os_fvtxc_tracks_qx6 = os_fvtxs_tracks_qx6 + os_fvtxn_tracks_qx6;
   long double os_fvtxc_tracks_qy6 = os_fvtxs_tracks_qy6 + os_fvtxn_tracks_qy6;
   long double os_fvtxc_tracks_qw = os_fvtxs_tracks_qw + os_fvtxn_tracks_qw;
-  float os_fvtxc_tracks_qq2 = flt_calc2_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qw);
-  float os_fvtxc_tracks_qq3 = flt_calc2_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qw);
-  double dbl_os_fvtxc_tracks_qq2 = dbl_calc2_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qw);
-  double dbl_os_fvtxc_tracks_qq3 = dbl_calc2_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qw);
+  float os_fvtxc_tracks_qq2 = flt_calc2_event((float)os_fvtxc_tracks_qx2,(float)os_fvtxc_tracks_qy2,(float)os_fvtxc_tracks_qw);
+  float os_fvtxc_tracks_qq3 = flt_calc2_event((float)os_fvtxc_tracks_qx3,(float)os_fvtxc_tracks_qy3,(float)os_fvtxc_tracks_qw);
+  double dbl_os_fvtxc_tracks_qq2 = dbl_calc2_event((double)os_fvtxc_tracks_qx2,(double)os_fvtxc_tracks_qy2,(double)os_fvtxc_tracks_qw);
+  double dbl_os_fvtxc_tracks_qq3 = dbl_calc2_event((double)os_fvtxc_tracks_qx3,(double)os_fvtxc_tracks_qy3,(double)os_fvtxc_tracks_qw);
   long double ldb_os_fvtxc_tracks_qq2 = ldb_calc2_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qw);
   long double ldb_os_fvtxc_tracks_qq3 = ldb_calc2_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qw);
   TComplex tc_os_fvtxc_tracks_Q2(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2);
@@ -1632,12 +1632,12 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
 
   // --- now have a look at some 4 particle cumulants
   // --- calc4_event has the protection/requirement on the minimum number of tracks
-  float os_fvtxc_tracks_qqqq24 = flt_calc4_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4,os_fvtxc_tracks_qw);
-  float os_fvtxc_tracks_qqqq34 = flt_calc4_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qx6,os_fvtxc_tracks_qy6,os_fvtxc_tracks_qw);
-  float dbl_os_fvtxc_tracks_qqqq24 = dbl_calc4_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4,os_fvtxc_tracks_qw);
-  float dbl_os_fvtxc_tracks_qqqq34 = dbl_calc4_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qx6,os_fvtxc_tracks_qy6,os_fvtxc_tracks_qw);
-  float ldb_os_fvtxc_tracks_qqqq24 = ldb_calc4_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4,os_fvtxc_tracks_qw);
-  float ldb_os_fvtxc_tracks_qqqq34 = ldb_calc4_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qx6,os_fvtxc_tracks_qy6,os_fvtxc_tracks_qw);
+  float os_fvtxc_tracks_qqqq24 = flt_calc4_event((float)os_fvtxc_tracks_qx2,(float)os_fvtxc_tracks_qy2,(float)os_fvtxc_tracks_qx4,(float)os_fvtxc_tracks_qy4,(float)os_fvtxc_tracks_qw);
+  float os_fvtxc_tracks_qqqq34 = flt_calc4_event((float)os_fvtxc_tracks_qx3,(float)os_fvtxc_tracks_qy3,(float)os_fvtxc_tracks_qx6,(float)os_fvtxc_tracks_qy6,(float)os_fvtxc_tracks_qw);
+  double dbl_os_fvtxc_tracks_qqqq24 = dbl_calc4_event((double)os_fvtxc_tracks_qx2,(double)os_fvtxc_tracks_qy2,(double)os_fvtxc_tracks_qx4,(double)os_fvtxc_tracks_qy4,(double)os_fvtxc_tracks_qw);
+  double dbl_os_fvtxc_tracks_qqqq34 = dbl_calc4_event((double)os_fvtxc_tracks_qx3,(double)os_fvtxc_tracks_qy3,(double)os_fvtxc_tracks_qx6,(double)os_fvtxc_tracks_qy6,(double)os_fvtxc_tracks_qw);
+  long double ldb_os_fvtxc_tracks_qqqq24 = ldb_calc4_event(os_fvtxc_tracks_qx2,os_fvtxc_tracks_qy2,os_fvtxc_tracks_qx4,os_fvtxc_tracks_qy4,os_fvtxc_tracks_qw);
+  long double ldb_os_fvtxc_tracks_qqqq34 = ldb_calc4_event(os_fvtxc_tracks_qx3,os_fvtxc_tracks_qy3,os_fvtxc_tracks_qx6,os_fvtxc_tracks_qy6,os_fvtxc_tracks_qw);
   if ( _verbosity > 1000 ) cout << os_fvtxc_tracks_qqqq24 << " " << os_fvtxc_tracks_qqqq34 << endl;
   // --- four particle 2sub
   tca2 = TComplex(os_fvtxs_tracks_qx2,os_fvtxs_tracks_qy2);
