@@ -15,6 +15,8 @@
 //                                                                      //
 //////////////////////////////////////////////////////////////////////////
 
+// --- modified by Ron Belmont to use long double instead of Double_t, 06 Dec 2017
+
 #include "LDComplex.h"
 #include "Riostream.h"
 
@@ -24,7 +26,7 @@ ClassImp(LDComplex)
 ////////////////////////////////////////////////////////////////////////////////
 /// Standard constructor
 
-LDComplex::LDComplex(Double_t re, Double_t im, Bool_t polar) : fRe(re), fIm(im)
+LDComplex::LDComplex(long double re, long double im, Bool_t polar) : fRe(re), fIm(im)
 {
    if (polar) {
       if(re<0) {
