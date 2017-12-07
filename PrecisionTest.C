@@ -1447,6 +1447,20 @@ int PrecisionTest::End(PHCompositeNode *topNode)
           printf(" c3{4} float       %.50f \n c3{4} double      %.50f \n c3{4} long double %.50Lf \n",
                  flt_corr_c34,dbl_corr_c34,ldb_corr_c34);
         } // end if
+      // --- do nan corrections
+      // ---
+      if ( flt_corr_222 != flt_corr_222 ) flt_corr_222 = -1;
+      if ( flt_corr_four != flt_corr_four ) flt_corr_four = -1;
+      if ( flt_corr_c34 != flt_corr_c34 ) flt_corr_c34 = -1;
+      // ---
+      if ( dbl_corr_222 != dbl_corr_222 ) dbl_corr_222 = -1;
+      if ( dbl_corr_four != dbl_corr_four ) dbl_corr_four = -1;
+      if ( dbl_corr_c34 != dbl_corr_c34 ) dbl_corr_c34 = -1;
+      // ---
+      if ( ldb_corr_222 != ldb_corr_222 ) ldb_corr_222 = -1;
+      if ( ldb_corr_four != ldb_corr_four ) ldb_corr_four = -1;
+      if ( ldb_corr_c34 != ldb_corr_c34 ) ldb_corr_c34 = -1;
+      // --- now fill histos
       // ---
       precision_test_flt_3h222->SetBinContent(icent+1,flt_corr_222);
       precision_test_flt_3hfour->SetBinContent(icent+1,flt_corr_four);
