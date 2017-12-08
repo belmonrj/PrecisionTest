@@ -140,7 +140,6 @@ class PrecisionTest: public SubsysReco
 
   bool _create_ttree;
   // -- the tree itself
-  TTree* shorttree;
 
   //-- ntp_event variables
   int event;
