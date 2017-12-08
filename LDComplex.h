@@ -1,4 +1,4 @@
-// @(#)root/mathcore:$Id$
+// @(#)root/mathcore:$Id: LDComplex.h,v 1.1 2017/12/07 16:43:20 belmonrj Exp $
 // Author: Federico Carminati   22/04/2004
 
 /*************************************************************************
