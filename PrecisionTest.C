@@ -1014,18 +1014,6 @@ int PrecisionTest::process_event(PHCompositeNode *topNode)
   long double ldb_ac_fvtxc_tracks_qqqq24 = ldb_calc4_event(ac_fvtxc_tracks_qx2,ac_fvtxc_tracks_qy2,ac_fvtxc_tracks_qx4,ac_fvtxc_tracks_qy4,ac_fvtxc_tracks_qw);
   long double ldb_ac_fvtxc_tracks_qqqq34 = ldb_calc4_event(ac_fvtxc_tracks_qx3,ac_fvtxc_tracks_qy3,ac_fvtxc_tracks_qx6,ac_fvtxc_tracks_qy6,ac_fvtxc_tracks_qw);
   if ( _verbosity > 1000 ) cout << ac_fvtxc_tracks_qqqq24 << " " << ac_fvtxc_tracks_qqqq34 << endl;
-  // --- four particle 2sub
-  TComplex tca2 = TComplex(ac_fvtxs_tracks_qx2,ac_fvtxs_tracks_qy2);
-  TComplex tcb2 = TComplex(ac_fvtxn_tracks_qx2,ac_fvtxn_tracks_qy2);
-  TComplex tca4 = TComplex(ac_fvtxs_tracks_qx4,ac_fvtxs_tracks_qy4);
-  TComplex tcb4 = TComplex(ac_fvtxn_tracks_qx4,ac_fvtxn_tracks_qy4);
-  TComplex tc_numerator_a = tca2*tca2 - tca4;
-  TComplex tc_numerator_b = TComplex::Conjugate(tcb2*tcb2 - tcb4);
-  TComplex tc_numerator = tc_numerator_a*tc_numerator_b;
-  double numerator = tc_numerator.Re();
-  double tcaw = ac_fvtxs_tracks_qw*ac_fvtxs_tracks_qw - ac_fvtxs_tracks_qw;
-  double tcbw = ac_fvtxn_tracks_qw*ac_fvtxn_tracks_qw - ac_fvtxn_tracks_qw;
-  double denominator = tcaw*tcbw;
 
 
 
