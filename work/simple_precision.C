@@ -14,10 +14,25 @@ void simple_precision()
   TH1D* precision_test_ldb_3hfour = (TH1D*)file->Get("precision_test_ldb_3hfour");
   TH1D* precision_test_ldb_3hcumu = (TH1D*)file->Get("precision_test_ldb_3hcumu");
 
+  bool normalization_problem = true;
+  if ( normalization_problem )
+    {
+      double norm = 100.0/precision_test_flt_3h222->GetEntries();
+      precision_test_flt_3h222->Scale(norm);
+      precision_test_flt_3hfour->Scale(norm);
+      precision_test_flt_3hcumu->Scale(norm);
+      precision_test_dbl_3h222->Scale(norm);
+      precision_test_dbl_3hfour->Scale(norm);
+      precision_test_dbl_3hcumu->Scale(norm);
+      precision_test_ldb_3h222->Scale(norm);
+      precision_test_ldb_3hfour->Scale(norm);
+      precision_test_ldb_3hcumu->Scale(norm);
+    }
+
   double xmin = 0;
   double xmax = 100;
-  double ymin = -1e-2;
-  double ymax = 1e-2;
+  double ymin = -1e-4;
+  double ymax = 1e-4;
   TH2D* hdummy = new TH2D("hdummy","",1,xmin,xmax,1,ymin,ymax);
   hdummy->Draw();
   hdummy->GetXaxis()->SetTitle("centrality");
@@ -48,8 +63,8 @@ void simple_precision()
 
   xmin = 0;
   xmax = 100;
-  ymin = -1e-2;
-  ymax = 1e-2;
+  ymin = -1e-4;
+  ymax = 1e-4;
   delete hdummy;
   hdummy = new TH2D("hdummy","",1,xmin,xmax,1,ymin,ymax);
   hdummy->Draw();
@@ -73,8 +88,8 @@ void simple_precision()
 
   xmin = 0;
   xmax = 100;
-  ymin = -1e-2;
-  ymax = 1e-2;
+  ymin = -1e-4;
+  ymax = 1e-4;
   delete hdummy;
   hdummy = new TH2D("hdummy","",1,xmin,xmax,1,ymin,ymax);
   hdummy->Draw();
@@ -98,8 +113,8 @@ void simple_precision()
 
   xmin = 0;
   xmax = 60;
-  ymin = -1e-4;
-  ymax = 1e-4;
+  ymin = -1e-5;
+  ymax = 1e-5;
   delete hdummy;
   hdummy = new TH2D("hdummy","",1,xmin,xmax,1,ymin,ymax);
   hdummy->Draw();
