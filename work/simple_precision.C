@@ -15,6 +15,9 @@ void simple_precision()
   TH1D* precision_test_ldb_3hcumu = (TH1D*)file->Get("precision_test_ldb_3hcumu");
 
   bool normalization_problem = true;
+  // --- note that the normalization is correct for a single job
+  // --- when aggregating single jobs, the normalization is lost,
+  // --- but can be recovered by scaling by 100/nentries
   if ( normalization_problem )
     {
       double norm = 100.0/precision_test_flt_3h222->GetEntries();

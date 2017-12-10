@@ -1437,6 +1437,9 @@ int PrecisionTest::End(PHCompositeNode *topNode)
       if ( ldb_corr_four != ldb_corr_four ) ldb_corr_four = -1;
       if ( ldb_corr_c34 != ldb_corr_c34 ) ldb_corr_c34 = -1;
       // --- now fill histos
+      // --- note that the normalization is correct for a single job
+      // --- when aggregating single jobs, the normalization is lost,
+      // --- but can be recovered by scaling by 100/nentries
       // ---
       precision_test_flt_3h222->SetBinContent(icent+1,flt_corr_222);
       precision_test_flt_3hfour->SetBinContent(icent+1,flt_corr_four);
