@@ -90,6 +90,7 @@ void simple_precision()
   line->Draw();
   leg->Draw();
   c1->Print("test_precision_222.png");
+  c1->Print("test_precision_222.pdf");
 
   xmin = 0;
   xmax = 100;
@@ -119,6 +120,7 @@ void simple_precision()
   line->Draw();
   leg->Draw();
   c1->Print("test_precision_four.png");
+  c1->Print("test_precision_four.pdf");
 
   xmin = 0;
   xmax = 100;
@@ -148,6 +150,7 @@ void simple_precision()
   line->Draw();
   leg->Draw();
   c1->Print("test_precision_cumu.png");
+  c1->Print("test_precision_cumu.pdf");
 
   xmin = 0;
   xmax = 60;
@@ -177,5 +180,6 @@ void simple_precision()
   line->Draw();
   leg->Draw();
   c1->Print("test_precision_zumu.png");
+  c1->Print("test_precision_zumu.pdf");
 
 }
