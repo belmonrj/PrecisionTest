@@ -174,12 +174,15 @@ PrecisionTest::PrecisionTest(): SubsysReco("BOULDERCUMULANTS")
         }
     }
 
+  precision_test_flt_3htwo = NULL;
   precision_test_flt_3h222 = NULL;
   precision_test_flt_3hfour = NULL;
   precision_test_flt_3hcumu = NULL;
+  precision_test_dbl_3htwo = NULL;
   precision_test_dbl_3h222 = NULL;
   precision_test_dbl_3hfour = NULL;
   precision_test_dbl_3hcumu = NULL;
+  precision_test_ldb_3htwo = NULL;
   precision_test_ldb_3h222 = NULL;
   precision_test_ldb_3hfour = NULL;
   precision_test_ldb_3hcumu = NULL;
@@ -325,12 +328,15 @@ int PrecisionTest::Init(PHCompositeNode *topNode)
         }
     }
 
+  precision_test_flt_3htwo  = new TH1D("precision_test_flt_3htwo" ,"",100,-0.5,99.5);
   precision_test_flt_3h222  = new TH1D("precision_test_flt_3h222" ,"",100,-0.5,99.5);
   precision_test_flt_3hfour = new TH1D("precision_test_flt_3hfour","",100,-0.5,99.5);
   precision_test_flt_3hcumu = new TH1D("precision_test_flt_3hcumu","",100,-0.5,99.5);
+  precision_test_dbl_3htwo  = new TH1D("precision_test_dbl_3htwo" ,"",100,-0.5,99.5);
   precision_test_dbl_3h222  = new TH1D("precision_test_dbl_3h222" ,"",100,-0.5,99.5);
   precision_test_dbl_3hfour = new TH1D("precision_test_dbl_3hfour","",100,-0.5,99.5);
   precision_test_dbl_3hcumu = new TH1D("precision_test_dbl_3hcumu","",100,-0.5,99.5);
+  precision_test_ldb_3htwo  = new TH1D("precision_test_ldb_3htwo" ,"",100,-0.5,99.5);
   precision_test_ldb_3h222  = new TH1D("precision_test_ldb_3h222" ,"",100,-0.5,99.5);
   precision_test_ldb_3hfour = new TH1D("precision_test_ldb_3hfour","",100,-0.5,99.5);
   precision_test_ldb_3hcumu = new TH1D("precision_test_ldb_3hcumu","",100,-0.5,99.5);
@@ -1395,8 +1401,11 @@ int PrecisionTest::End(PHCompositeNode *topNode)
       // double dbl_uncorr_four = dbl_uncorr_v34[icent];
       // long double ldb_uncorr_four = ldb_uncorr_v34[icent];
       // ---
+      // float flt_uncorr_two = flt_uncorr_v32[icent];
       // float flt_uncorr_222 = 2*flt_uncorr_v32[icent]*flt_uncorr_v32[icent];
+      // double dbl_uncorr_two = dbl_uncorr_v32[icent];
       // double dbl_uncorr_222 = 2*dbl_uncorr_v32[icent]*dbl_uncorr_v32[icent];
+      // long double ldb_uncorr_two = ldb_uncorr_v32[icent];
       // long double ldb_uncorr_222 = 2*ldb_uncorr_v32[icent]*ldb_uncorr_v32[icent];
       // ---
       // float flt_uncorr_c34 = flt_uncorr_v34[icent] - 2*flt_uncorr_v32[icent]*flt_uncorr_v32[icent];
@@ -1407,8 +1416,11 @@ int PrecisionTest::End(PHCompositeNode *topNode)
       double dbl_corr_four = dbl_corr_v34[icent];
       long double ldb_corr_four = ldb_corr_v34[icent];
       // ---
+      float flt_corr_two = flt_corr_v32[icent];
       float flt_corr_222 = 2*flt_corr_v32[icent]*flt_corr_v32[icent];
+      double dbl_corr_two = dbl_corr_v32[icent];
       double dbl_corr_222 = 2*dbl_corr_v32[icent]*dbl_corr_v32[icent];
+      long double ldb_corr_two = ldb_corr_v32[icent];
       long double ldb_corr_222 = 2*ldb_corr_v32[icent]*ldb_corr_v32[icent];
       // ---
       float flt_corr_c34 = flt_corr_v34[icent] - 2*flt_corr_v32[icent]*flt_corr_v32[icent];
@@ -1425,14 +1437,17 @@ int PrecisionTest::End(PHCompositeNode *topNode)
         } // end if
       // --- do nan corrections
       // ---
+      if ( flt_corr_two != flt_corr_two ) flt_corr_two = -1;
       if ( flt_corr_222 != flt_corr_222 ) flt_corr_222 = -1;
       if ( flt_corr_four != flt_corr_four ) flt_corr_four = -1;
       if ( flt_corr_c34 != flt_corr_c34 ) flt_corr_c34 = -1;
       // ---
+      if ( dbl_corr_two != dbl_corr_two ) dbl_corr_two = -1;
       if ( dbl_corr_222 != dbl_corr_222 ) dbl_corr_222 = -1;
       if ( dbl_corr_four != dbl_corr_four ) dbl_corr_four = -1;
       if ( dbl_corr_c34 != dbl_corr_c34 ) dbl_corr_c34 = -1;
       // ---
+      if ( ldb_corr_two != ldb_corr_two ) ldb_corr_two = -1;
       if ( ldb_corr_222 != ldb_corr_222 ) ldb_corr_222 = -1;
       if ( ldb_corr_four != ldb_corr_four ) ldb_corr_four = -1;
       if ( ldb_corr_c34 != ldb_corr_c34 ) ldb_corr_c34 = -1;
@@ -1441,14 +1456,17 @@ int PrecisionTest::End(PHCompositeNode *topNode)
       // --- when aggregating single jobs, the normalization is lost,
       // --- but can be recovered by scaling by 100/nentries
       // ---
+      precision_test_flt_3htwo->SetBinContent(icent+1,flt_corr_two);
       precision_test_flt_3h222->SetBinContent(icent+1,flt_corr_222);
       precision_test_flt_3hfour->SetBinContent(icent+1,flt_corr_four);
       precision_test_flt_3hcumu->SetBinContent(icent+1,flt_corr_c34);
       // ---
+      precision_test_dbl_3htwo->SetBinContent(icent+1,dbl_corr_two);
       precision_test_dbl_3h222->SetBinContent(icent+1,dbl_corr_222);
       precision_test_dbl_3hfour->SetBinContent(icent+1,dbl_corr_four);
       precision_test_dbl_3hcumu->SetBinContent(icent+1,dbl_corr_c34);
       // ---
+      precision_test_ldb_3htwo->SetBinContent(icent+1,ldb_corr_two);
       precision_test_ldb_3h222->SetBinContent(icent+1,ldb_corr_222);
       precision_test_ldb_3hfour->SetBinContent(icent+1,ldb_corr_four);
       precision_test_ldb_3hcumu->SetBinContent(icent+1,ldb_corr_c34);
