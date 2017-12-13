@@ -2,7 +2,7 @@ void simple_precision()
 {
 
   TCanvas* c1 = new TCanvas("c1","");
-  TFile* file = TFile::Open("precision_12452.root");
+  TFile* file = TFile::Open("precision_12473.root");
   // --- normal comparison to check normalization, computation issues, etc
   TProfile* tp1f_normal_two = (TProfile*)file->Get("centrality_ac_fvtxc_tracks_c32");
   TProfile* tp1f_normal_four = (TProfile*)file->Get("centrality_ac_fvtxc_tracks_c34");
@@ -14,20 +14,20 @@ void simple_precision()
   th1d_normal_cumu->Add(th1d_normal_222,-1.0);
   // --- now the precision test histos
   // --- float
-  TH1D* precision_test_flt_3htwo = ( (TProfile*)file->Get("centrality_ac_fvtxc_tracks_c32") )->ProjectionX("h1"); // alternate to use in code development, because...
-  //TH1D* precision_test_flt_3htwo = (TH1D*)file->Get("precision_test_flt_3htwo"); // ...this is not available until RCF comes back
+  //TH1D* precision_test_flt_3htwo = ( (TProfile*)file->Get("centrality_ac_fvtxc_tracks_c32") )->ProjectionX("h1"); // alternate to use in code development, because...
+  TH1D* precision_test_flt_3htwo = (TH1D*)file->Get("precision_test_flt_3htwo"); // ...this is not available until RCF comes back
   TH1D* precision_test_flt_3h222x = (TH1D*)file->Get("precision_test_flt_3h222");
   TH1D* precision_test_flt_3hfour = (TH1D*)file->Get("precision_test_flt_3hfour");
   TH1D* precision_test_flt_3hcumux = (TH1D*)file->Get("precision_test_flt_3hcumu");
   // --- double
-  TH1D* precision_test_dbl_3htwo = ( (TProfile*)file->Get("centrality_ac_fvtxc_tracks_c32") )->ProjectionX("h2");
-  //TH1D* precision_test_dbl_3htwo = (TH1D*)file->Get("precision_test_dbl_3htwo");
+  //TH1D* precision_test_dbl_3htwo = ( (TProfile*)file->Get("centrality_ac_fvtxc_tracks_c32") )->ProjectionX("h2");
+  TH1D* precision_test_dbl_3htwo = (TH1D*)file->Get("precision_test_dbl_3htwo");
   TH1D* precision_test_dbl_3h222x = (TH1D*)file->Get("precision_test_dbl_3h222");
   TH1D* precision_test_dbl_3hfour = (TH1D*)file->Get("precision_test_dbl_3hfour");
   TH1D* precision_test_dbl_3hcumux = (TH1D*)file->Get("precision_test_dbl_3hcumu");
   // --- long double
-  TH1D* precision_test_ldb_3htwo = ( (TProfile*)file->Get("centrality_ac_fvtxc_tracks_c32") )->ProjectionX("h3");
-  //TH1D* precision_test_ldb_3htwo = (TH1D*)file->Get("precision_test_dbl_3htwo");
+  //TH1D* precision_test_ldb_3htwo = ( (TProfile*)file->Get("centrality_ac_fvtxc_tracks_c32") )->ProjectionX("h3");
+  TH1D* precision_test_ldb_3htwo = (TH1D*)file->Get("precision_test_ldb_3htwo");
   TH1D* precision_test_ldb_3h222x = (TH1D*)file->Get("precision_test_ldb_3h222");
   TH1D* precision_test_ldb_3hfour = (TH1D*)file->Get("precision_test_ldb_3hfour");
   TH1D* precision_test_ldb_3hcumux = (TH1D*)file->Get("precision_test_ldb_3hcumu");
@@ -42,12 +42,15 @@ void simple_precision()
       // --- need to revisit normalization once new histos are available
       double norm = 100.0/precision_test_flt_3h222x->GetEntries();
       //precision_test_flt_3h222->Scale(norm);
+      precision_test_flt_3htwo->Scale(norm);
       precision_test_flt_3hfour->Scale(norm);
       //precision_test_flt_3hcumu->Scale(norm);
       //precision_test_dbl_3h222->Scale(norm);
+      precision_test_dbl_3htwo->Scale(norm);
       precision_test_dbl_3hfour->Scale(norm);
       //precision_test_dbl_3hcumu->Scale(norm);
       //precision_test_ldb_3h222->Scale(norm);
+      precision_test_ldb_3htwo->Scale(norm);
       precision_test_ldb_3hfour->Scale(norm);
       //precision_test_ldb_3hcumu->Scale(norm);
     }
