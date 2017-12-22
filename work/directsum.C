@@ -9,15 +9,28 @@ void directsum()
 
   const int nbins = 100;
 
-  float flt_cnt[nbins] = {0};
-  float flt_two[nbins] = {0};
-  float flt_for[nbins] = {0};
-  double dbl_cnt[nbins] = {0};
-  double dbl_two[nbins] = {0};
-  double dbl_for[nbins] = {0};
-  long double ldb_cnt[nbins] = {0};
-  long double ldb_two[nbins] = {0};
-  long double ldb_for[nbins] = {0};
+  float flt_cnt[nbins];
+  float flt_two[nbins];
+  float flt_for[nbins];
+  double dbl_cnt[nbins];
+  double dbl_two[nbins];
+  double dbl_for[nbins];
+  long double ldb_cnt[nbins];
+  long double ldb_two[nbins];
+  long double ldb_for[nbins];
+
+  for ( int i = 0; i < nbins; ++i )
+    {
+      flt_cnt[i] = 0;
+      flt_two[i] = 0;
+      flt_for[i] = 0;
+      dbl_cnt[i] = 0;
+      dbl_two[i] = 0;
+      dbl_for[i] = 0;
+      ldb_cnt[i] = 0;
+      ldb_two[i] = 0;
+      ldb_for[i] = 0;
+    }
 
   for ( int i = 0; i < nfiles; ++i )
     {
@@ -26,13 +39,13 @@ void directsum()
       cout << filenames[i].Data() << " " << fin << endl;
       // --- get the float histograms
       TH1D* precision_test_flt_3htwo = (TH1D*)fin->Get("precision_test_flt_3htwo");
-      TH1D* precision_test_flt_3hfor = (TH1D*)fin->Get("precision_test_flt_3hfor");
+      TH1D* precision_test_flt_3hfor = (TH1D*)fin->Get("precision_test_flt_3hfour");
       // --- get the double histograms
       TH1D* precision_test_dbl_3htwo = (TH1D*)fin->Get("precision_test_dbl_3htwo");
-      TH1D* precision_test_dbl_3hfor = (TH1D*)fin->Get("precision_test_dbl_3hfor");
+      TH1D* precision_test_dbl_3hfor = (TH1D*)fin->Get("precision_test_dbl_3hfour");
       // --- get the long double histograms
       TH1D* precision_test_ldb_3htwo = (TH1D*)fin->Get("precision_test_ldb_3htwo");
-      TH1D* precision_test_ldb_3hfor = (TH1D*)fin->Get("precision_test_ldb_3hfor");
+      TH1D* precision_test_ldb_3hfor = (TH1D*)fin->Get("precision_test_ldb_3hfour");
       // --- check the pointers
       if (
           !precision_test_flt_3htwo ||
@@ -40,7 +53,7 @@ void directsum()
           !precision_test_dbl_3htwo ||
           !precision_test_dbl_3hfor ||
           !precision_test_ldb_3htwo ||
-          !precision_test_ldb_3hfor ||
+          !precision_test_ldb_3hfor
           )
         {
           cout << "WARNING! one or more histos missing from file " << filenames[i].Data() << endl;
