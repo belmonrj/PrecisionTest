@@ -54,7 +54,7 @@ void compare_direct()
   th1d_normal_222->SetMarkerStyle(kFullStar);
   th1d_normal_222->SetMarkerColor(kBlue);
   th1d_normal_222->SetLineColor(kBlue);
-  th1d_normal_222->Draw("p same");
+  //th1d_normal_222->Draw("p same");
   precision_test_flt_3h222->SetMarkerStyle(kOpenCircle);
   precision_test_flt_3h222->SetMarkerColor(kBlack);
   precision_test_flt_3h222->SetLineColor(kBlack);
@@ -92,7 +92,7 @@ void compare_direct()
   th1d_normal_four->SetMarkerStyle(kFullStar);
   th1d_normal_four->SetMarkerColor(kBlue);
   th1d_normal_four->SetLineColor(kBlue);
-  th1d_normal_four->Draw("p same");
+  //th1d_normal_four->Draw("p same");
   precision_test_flt_3hfour->SetMarkerStyle(kOpenCircle);
   precision_test_flt_3hfour->SetMarkerColor(kBlack);
   precision_test_flt_3hfour->SetLineColor(kBlack);
@@ -122,7 +122,7 @@ void compare_direct()
   th1d_normal_cumu->SetMarkerStyle(kFullStar);
   th1d_normal_cumu->SetMarkerColor(kBlue);
   th1d_normal_cumu->SetLineColor(kBlue);
-  th1d_normal_cumu->Draw("p same");
+  //th1d_normal_cumu->Draw("p same");
   precision_test_flt_3hcumu->SetMarkerStyle(kOpenCircle);
   precision_test_flt_3hcumu->SetMarkerColor(kBlack);
   precision_test_flt_3hcumu->SetLineColor(kBlack);
@@ -152,7 +152,7 @@ void compare_direct()
   th1d_normal_cumu->SetMarkerStyle(kFullStar);
   th1d_normal_cumu->SetMarkerColor(kBlue);
   th1d_normal_cumu->SetLineColor(kBlue);
-  th1d_normal_cumu->Draw("p same");
+  //th1d_normal_cumu->Draw("p same");
   precision_test_flt_3hcumu->SetMarkerStyle(kOpenCircle);
   precision_test_flt_3hcumu->SetMarkerColor(kBlack);
   precision_test_flt_3hcumu->SetLineColor(kBlack);
