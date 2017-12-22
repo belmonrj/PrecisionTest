@@ -67,17 +67,17 @@ void directsum()
           continue;
         }
       // --- loop over the histograms to get the bin contents
-      for ( int i = 0; i < nbins; ++i )
+      for ( int j = 0; j < nbins; ++j )
         {
-          flt_two[i] += precision_test_flt_3htwo->GetBinContent(i+1);
-          flt_for[i] += precision_test_flt_3hfor->GetBinContent(i+1);
-          dbl_two[i] += precision_test_dbl_3htwo->GetBinContent(i+1);
-          dbl_for[i] += precision_test_dbl_3hfor->GetBinContent(i+1);
-          ldb_two[i] += precision_test_ldb_3htwo->GetBinContent(i+1);
-          ldb_for[i] += precision_test_ldb_3hfor->GetBinContent(i+1);
-          flt_cnt[i] += 1;
-          dbl_cnt[i] += 1;
-          ldb_cnt[i] += 1;
+          flt_two[j] += precision_test_flt_3htwo->GetBinContent(j+1);
+          flt_for[j] += precision_test_flt_3hfor->GetBinContent(j+1);
+          dbl_two[j] += precision_test_dbl_3htwo->GetBinContent(j+1);
+          dbl_for[j] += precision_test_dbl_3hfor->GetBinContent(j+1);
+          ldb_two[j] += precision_test_ldb_3htwo->GetBinContent(j+1);
+          ldb_for[j] += precision_test_ldb_3hfor->GetBinContent(j+1);
+          flt_cnt[j] += 1;
+          dbl_cnt[j] += 1;
+          ldb_cnt[j] += 1;
         } // end loop over histos
       // --- all done
       fin->Close();
