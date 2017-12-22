@@ -87,9 +87,9 @@ void directsum()
   for ( int i = 0; i < nbins; ++i )
     {
       cout << "----------------------------------------------------------------------------------------------------------------------------------" << endl;
-      print("i = %d flt_two = %.50e flt_for = %.50e \n",i,flt_two[i],flt_for[i]);
-      print("i = %d dbl_two = %.50e dbl_for = %.50e \n",i,dbl_two[i],dbl_for[i]);
-      print("i = %d ldb_two = %.50Le ldb_for = %.50Le \n",i,ldb_two[i],ldb_for[i]);
+      printf("i = %d flt_two = %.50e flt_for = %.50e \n",i,flt_two[i],flt_for[i]);
+      printf("i = %d dbl_two = %.50e dbl_for = %.50e \n",i,dbl_two[i],dbl_for[i]);
+      printf("i = %d ldb_two = %.50Le ldb_for = %.50Le \n",i,ldb_two[i],ldb_for[i]);
       cout << "----------------------------------------------------------------------------------------------------------------------------------" << endl;
       flt_two[i] /= flt_cnt[i];
       flt_for[i] /= flt_cnt[i];
@@ -97,10 +97,11 @@ void directsum()
       dbl_for[i] /= dbl_cnt[i];
       ldb_two[i] /= ldb_cnt[i];
       ldb_for[i] /= ldb_cnt[i];
-      print("i = %d flt_two = %.50e flt_for = %.50e \n",i,flt_two[i],flt_for[i]);
-      print("i = %d dbl_two = %.50e dbl_for = %.50e \n",i,dbl_two[i],dbl_for[i]);
-      print("i = %d ldb_two = %.50Le ldb_for = %.50Le \n",i,ldb_two[i],ldb_for[i]);
+      printf("i = %d flt_two = %.50e flt_for = %.50e \n",i,flt_two[i],flt_for[i]);
+      printf("i = %d dbl_two = %.50e dbl_for = %.50e \n",i,dbl_two[i],dbl_for[i]);
+      printf("i = %d ldb_two = %.50Le ldb_for = %.50Le \n",i,ldb_two[i],ldb_for[i]);
       cout << "----------------------------------------------------------------------------------------------------------------------------------" << endl;
+
     }
 
 
