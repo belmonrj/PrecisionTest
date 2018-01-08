@@ -88,6 +88,21 @@ void simple_precision()
       precision_test_flt_3hcumu->SetBinError(i+1,th1d_normal_cumu->GetBinError(i+1));
       precision_test_dbl_3hcumu->SetBinError(i+1,th1d_normal_cumu->GetBinError(i+1));
       precision_test_ldb_3hcumu->SetBinError(i+1,th1d_normal_cumu->GetBinError(i+1));
+      if ( i == 6 )
+        {
+          printf(
+                 "%.50e\n%.50e\n%.50e\n---\n%.50e\n%.50e\n%.50e\n---\n%.50e\n%.50e\n%.50e\n---\n",
+                 precision_test_flt_3h222->GetBinContent(i+1),
+                 precision_test_dbl_3h222->GetBinContent(i+1),
+                 precision_test_ldb_3h222->GetBinContent(i+1),
+                 precision_test_flt_3hfour->GetBinContent(i+1),
+                 precision_test_dbl_3hfour->GetBinContent(i+1),
+                 precision_test_ldb_3hfour->GetBinContent(i+1),
+                 precision_test_flt_3hcumu->GetBinContent(i+1),
+                 precision_test_dbl_3hcumu->GetBinContent(i+1),
+                 precision_test_ldb_3hcumu->GetBinContent(i+1)
+                 );
+        }
     }
 
   double xmin = 0;
